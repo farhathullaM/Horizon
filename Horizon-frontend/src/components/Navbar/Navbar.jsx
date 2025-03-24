@@ -1,5 +1,4 @@
-import React from "react";
-import horizon_logo from "../../assets/horizon_logo.png";
+import horizon_logo from "@/assets/logo/horizon_logo.png";
 import { Link } from "react-router-dom";
 import { PhoneCall } from "lucide-react";
 
@@ -11,7 +10,7 @@ export const Navbar = () => {
           src={horizon_logo}
           alt="horizon logo"
           draggable={false}
-          className="w-28"
+          className="w-32"
         />
       </Link>
 
