@@ -4,7 +4,7 @@ import { PhoneCall } from "lucide-react";
 
 export const Navbar = () => {
   return (
-    <div className="flex justify-around h-18 w-full items-center gap-4 shadow-md">
+    <div className="flex justify-around h-18 w-full items-center gap-4 shadow-md max-sm:justify-between max-sm:pr-5">
       <Link to="/">
         <img
           src={horizon_logo}
@@ -14,7 +14,7 @@ export const Navbar = () => {
         />
       </Link>
 
-      <div className="flex gap-4">
+      <div className="flex gap-10 max-sm:hidden">
         <Link to="/">Home</Link>
         <Link to="/">About</Link>
         <Link to="/">Our Courses</Link>

@@ -1,26 +1,37 @@
 import box from "@/assets/images/box.png";
 import SplitText from "../ui/SplitText";
+import { ChevronRight, ChevronsRight } from "lucide-react";
 
 export const HeroSection = () => {
   return (
-    <div className="flex justify-between mx-28 mt-16">
-      <div className="w-[54%] flex flex-col gap-4">
-        <h2 className="text-6xl font-bold text-black text-wrap ">
-          Trasform Your Passion into a Profession with 
-          <span className="text-[#1E4765]"> Horizon</span>
+    <div className="flex justify-between mx-28 py-16 gap-5 max-md:flex-col-reverse max-md:mx-10 max-sm:mx-5">
+      <div className="w-[54%] flex flex-col gap-4 max-md:w-full">
+        <h2 className="text-6xl font-bold text-black text-wrap max-sm:text-4xl">
+          Trasform Your Passion into a Profession with
+          <SplitText
+            text=" Horizon"
+            className="text-[#1E4765] text-left"
+            delay={150}
+            animationFrom={{ opacity: 0, transform: "translate3d(0,50px,0)" }}
+            animationTo={{ opacity: 1, transform: "translate3d(0,0,0)" }}
+            easing="easeOutCubic"
+            threshold={0.2}
+            rootMargin="-50px"
+          />
         </h2>
-        <p className="text-[#595959] font-light w-[65%]">
+        <p className="text-[#595959] font-light w-[65%] max-md:w-11/12">
           Elevate your career with globally accreditd degrees. Experience
           education that crosses borders and expands minds. Your jouney to
           success begins here.
         </p>
 
-        <div className="flex gap-3 select-none">
+        <div className="flex gap-3 select-none max-sm:flex-col">
           <button className="bg-[#FF9D01] text-white py-3 px-6 font-semibold rounded-xl  cursor-pointer hover:bg-[#ff8801]">
             Get a free Consultation
           </button>
-          <button className="text-[#1E4765] border-2 py-3 px-6 cursor-pointer hover:bg-[#daebf6]  font-semibold rounded-xl">
+          <button className="text-[#1E4765] border-2 border-[#1E4765] py-3 px-6 cursor-pointer hover:bg-[#daebf6] flex items-center gap-1  font-semibold rounded-xl">
             View Programmes
+            <ChevronsRight size={20} />
           </button>
         </div>
 
@@ -30,23 +41,12 @@ export const HeroSection = () => {
         </div>
       </div>
 
-      <div className="flex items-end"> 
-      <SplitText
-  text="Hello, Tailwind!"
-  className="text-2xl font-semibold text-center"
-  delay={150}
-  animationFrom={{ opacity: 0, transform: 'translate3d(0,50px,0)' }}
-  animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
-  easing="easeOutCubic"
-  threshold={0.2}
-  rootMargin="-50px"
-  onLetterAnimationComplete={handleAnimationComplete}
-/>
+      <div className="flex items-end justify-center">
         <img
           src={box}
           alt="background box"
           draggable={false}
-          className="select-none h-[90%]"
+          className="select-none h-[80%] max-md:w-96 max-md:h-96 shrink-0 max-sm:w-80 max-sm:h-64"
         />
       </div>
     </div>
