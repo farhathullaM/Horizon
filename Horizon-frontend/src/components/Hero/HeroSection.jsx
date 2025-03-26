@@ -1,13 +1,14 @@
 import box from "@/assets/images/box.png";
+import girl from "@/assets/images/lady.png";
 import SplitText from "../ui/SplitText";
-import { ChevronRight, ChevronsRight } from "lucide-react";
+import { ChevronsRight } from "lucide-react";
 
 export const HeroSection = () => {
   return (
     <div className="flex justify-between mx-28 py-16 gap-5 max-md:flex-col-reverse max-md:mx-10 max-sm:mx-5">
       <div className="w-[54%] flex flex-col gap-4 max-md:w-full">
         <h2 className="text-6xl font-bold text-black text-wrap max-sm:text-4xl">
-          Trasform Your Passion into a Profession with
+          Trasform Your Passion into a Profession<br></br> with
           <SplitText
             text=" Horizon"
             className="text-[#1E4765] text-left"
@@ -41,12 +42,17 @@ export const HeroSection = () => {
         </div>
       </div>
 
-      <div className="flex items-end justify-center">
+      <div className="flex items-end justify-center relative">
+        <img
+          src={girl}
+          alt="girl with book"
+          className="select-none absolute right-10 max-md:h-96 shrink-0 max-sm:w-80 max-sm:h-64"
+        />
         <img
           src={box}
           alt="background box"
           draggable={false}
-          className="select-none h-[80%] max-md:w-96 max-md:h-96 shrink-0 max-sm:w-80 max-sm:h-64"
+          className="select-none h-[80%] max-md:w-96 max-md:h-96 shrink-0 max-sm:w-80 max-sm:h-64 object-cover"
         />
       </div>
     </div>
