@@ -24,7 +24,9 @@ const Header = () => {
           </p>
           <div className="header-btn">
             <button className="btn-1">Get a free Consultation</button>
-            <button className="btn-2">view Programmes <span>&#11166;&#11166;</span></button>
+            <button className="btn-2">
+              view Programmes <span>&#11166;&#11166;</span>
+            </button>
           </div>
           <div className="box">
             <div></div>
