@@ -5,7 +5,7 @@ import { features } from "./list";
 
 export const RightChoice = () => {
   return (
-    <div className="flex flex-col justify-center items-center py-20 max-sm:pb-0 max-md:py-12">
+    <div className="flex flex-col justify-center items-center  max-sm:pb-0 ">
       <div className="w-full bg-[#1E4765] pt-8 pb-20">
         <SectionHeading
           className={"text-white"}

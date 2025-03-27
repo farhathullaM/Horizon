@@ -10,7 +10,7 @@ export const Home = () => {
   return (
     <div className="bg-[#F1F1F1]">
       <HeroSection />
-      <PopularCourses />
+      <PopularCourses isHomePage={true} />
       <WeGuide />
       <RightChoice />
       <OurUniversity />

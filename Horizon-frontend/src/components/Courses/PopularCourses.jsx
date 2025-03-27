@@ -5,8 +5,17 @@ import { CourseBox } from "./CourseBox";
 import { tabList } from "./tabList";
 import { SectionHeading } from "../ui/SectionHeading";
 import { handleHorizontalScroll } from "../../utils/handleHorizontalScroll";
+import {
+  undergraduate,
+  postgraduate,
+  diploma,
+  diplomaEngineering,
+  postgraduateDiploma,
+  btech,
+  mtech,
+} from "./courseDetails";
 
-export const PopularCourses = () => {
+export const PopularCourses = ({ isHomePage = false }) => {
   const tabsListRef = useRef(null);
   const [selectedTab, setSelectedTab] = useState("all");
 
@@ -19,8 +28,28 @@ export const PopularCourses = () => {
     };
   }, []);
 
+  // Object containing categorized courses
+  const coursesByCategory = {
+    all: [...undergraduate, ...postgraduate],
+    bachelors: undergraduate,
+    masters: postgraduate,
+    diploma: diploma,
+    postdiploma: postgraduateDiploma,
+    engdiploma: diplomaEngineering,
+    btech: btech,
+    mtech: mtech,
+  };
+
+  // Filtered list based on selected tab
+  const filteredCourses = coursesByCategory[selectedTab] || [];
+
+  // Show limited courses if on the homepage
+  const displayCourses = isHomePage
+    ? filteredCourses.slice(0, 6)
+    : filteredCourses;
+
   return (
-    <div className="flex justify-between mx-28 py-16 gap-5 flex-col max-md:mx-10 max-sm:mx-5 max-sm:gap-0 max-sm:pt-0">
+    <div className="flex justify-between mx-28  gap-5 flex-col max-md:mx-10 max-sm:mx-5 max-sm:gap-0 max-sm:pt-0">
       <SectionHeading heading={"Popular Courses"} />
 
       <Tabs defaultValue="all" className="w-full my-10">
@@ -45,8 +74,25 @@ export const PopularCourses = () => {
             ))}
           </div>
         </TabsList>
-        <TabsContent value="all">
-          <CourseBox />
+
+        <TabsContent value={selectedTab}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
+            {displayCourses.length > 0 ? (
+              displayCourses.map((course, index) => (
+                <CourseBox
+                  key={index}
+                  courseName={course.name}
+                  eligibility={course.eligibility}
+                  duration={course.duration}
+                  mode={course.mode}
+                />
+              ))
+            ) : (
+              <p className="text-gray-500 text-center col-span-3">
+                No courses available.
+              </p>
+            )}
+          </div>
         </TabsContent>
       </Tabs>
     </div>
