@@ -1,7 +1,8 @@
 import { RightChoice } from "../components/Advertisement/RightChoice";
 import { WeGuide } from "../components/Advertisement/WeGuide";
+import { Contact } from "../components/Contact/Contact";
 import { PopularCourses } from "../components/Courses/PopularCourses";
-import { FAQ } from "../components/FAQ/FAQ";
+import { FAQ } from "../components/FAQ/FAQ.jsx";
 import { HeroSection } from "../components/Hero/HeroSection";
 import { OurUniversity } from "../components/University/OurUniversity";
 
@@ -14,6 +15,7 @@ export const Home = () => {
       <RightChoice />
       <OurUniversity />
       <FAQ />
+      <Contact />
     </div>
   );
 };

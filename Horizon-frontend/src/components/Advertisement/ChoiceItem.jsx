@@ -1,15 +1,16 @@
-import expert from "@/assets/icons/expert.svg";
-
-export const ChoiceItem = () => {
+export const ChoiceItem = ({ heading, iconName, icon, img }) => {
   return (
-    <div className="w-72 border border-[#1E4765] rounded-4xl h-52 flex items-end ">
-      <img src="" alt="" />
-      <div className="p-1 rounded-full border items-center gap-3 border-[#1E4765] text-[#1E4765] hover:text-white font-semibold flex h-fit w-full hover:bg-[#1E4765]">
+    <div className="w-72 border border-[#1E4765] rounded-4xl h-52 flex items-end relative cursor-pointer group overflow-hidden">
+      <img
+        src={img}
+        alt={iconName}
+        className="group-hover:scale-110 w-full h-full rounded-4xl object-cover transform duration-200"
+      />
+      <div className="p-1 absolute  bg-white rounded-full border items-center gap-3 border-[#1E4765] text-[#1E4765] group-hover:text-white font-semibold flex h-fit w-full group-hover:bg-[#1E4765]">
         <div className="p-3 bg-[#1E4765] rounded-full">
-          <img src={expert} alt="expert icon" className="select-none w-7" />
+          <img src={icon} alt={iconName} className="select-none w-7 invert" />
         </div>
-        Expert <br />
-        Guidence
+        {heading}
       </div>
     </div>
   );
