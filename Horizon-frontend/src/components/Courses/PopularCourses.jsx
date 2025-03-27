@@ -49,7 +49,7 @@ export const PopularCourses = ({ isHomePage = false }) => {
     : filteredCourses;
 
   return (
-    <div className="flex justify-between mx-28  gap-5 flex-col max-md:mx-10 max-sm:mx-5 max-sm:gap-0 max-sm:pt-0">
+    <div className="flex  justify-between mx-28  gap-5 flex-col max-md:mx-10 max-sm:mx-5 max-sm:gap-0 max-sm:pt-0">
       <SectionHeading heading={"Popular Courses"} />
 
       <Tabs defaultValue="all" className="w-full my-10">

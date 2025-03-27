@@ -16,9 +16,9 @@ export const Navbar = () => {
 
       <div className="flex gap-10 max-sm:hidden">
         <Link to="/">Home</Link>
-        <Link to="/">About</Link>
-        <Link to="/">Our Courses</Link>
-        <Link to="/">Contact</Link>
+        <Link to="/about">About</Link>
+        <Link to="/courses">Our Courses</Link>
+        <Link to="/contact">Contact</Link>
       </div>
 
       <div className="flex items-center gap-2 border-2 px-4 py-1 rounded-md">

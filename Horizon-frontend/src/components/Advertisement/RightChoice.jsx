@@ -15,6 +15,7 @@ export const RightChoice = () => {
               <br /> Right Choice for You
             </>
           }
+          invert={true}
         />
       </div>
 
