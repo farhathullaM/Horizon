@@ -2,7 +2,7 @@ import React from "react";
 
 export const ContactForm = () => {
   return (
-    <form className="flex flex-col gap-3 w-[40%]">
+    <form className="flex flex-col gap-3 w-full">
       <div className="flex flex-col gap-1">
         <label htmlFor="name" className="font-medium">
           Name

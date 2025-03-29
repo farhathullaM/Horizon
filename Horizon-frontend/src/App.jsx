@@ -5,6 +5,7 @@ import { Navbar } from "./components/Navbar/Navbar";
 import { CoursesPage } from "./Pages/CoursesPage";
 import { About } from "./Pages/About";
 import { ContactPage } from "./Pages/ContactPage";
+import { Footer } from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/courses" element={<CoursesPage />} />
         <Route path="/contact" element={<ContactPage />} />
       </Routes>
+      <Footer />
     </>
   );
 }

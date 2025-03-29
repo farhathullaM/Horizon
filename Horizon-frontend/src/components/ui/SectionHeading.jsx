@@ -18,7 +18,7 @@ export const SectionHeading = ({
           className
         )}
       >
-        {heading}{" "}
+        {heading}
       </h3>
       <img
         src={underline}

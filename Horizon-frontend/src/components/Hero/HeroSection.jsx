@@ -5,7 +5,7 @@ import { ChevronsRight } from "lucide-react";
 
 export const HeroSection = () => {
   return (
-    <div className="flex justify-between mx-28 py-16 gap-5 max-md:flex-col-reverse max-md:mx-10 max-sm:mx-5">
+    <div className="flex justify-around mx-28 py-16 gap-5 max-md:flex-col-reverse max-md:mx-10 max-sm:mx-5 max-[1100px]:mx-10">
       <div className="w-[54%] flex flex-col gap-4 max-md:w-full">
         <h2 className="text-6xl font-bold text-black text-wrap max-sm:text-4xl">
           Trasform Your Passion into a Profession<br></br> with
@@ -46,13 +46,13 @@ export const HeroSection = () => {
         <img
           src={girl}
           alt="girl with book"
-          className="select-none absolute right-10 max-md:h-96 shrink-0 max-sm:w-80 max-sm:h-64"
+          className="select-none absolute right-10 max-md:h-96 shrink-0 max-sm:w-80 max-sm:h-96 object-cover"
         />
         <img
           src={box}
           alt="background box"
           draggable={false}
-          className="select-none h-[80%] max-md:w-96 max-md:h-96 shrink-0 max-sm:w-80 max-sm:h-64 object-cover"
+          className="select-none max-[1100px]:w-80  h-[80%] max-md:w-96 max-md:h-96 shrink-0 max-sm:w-80 max-sm:h-80 object-cover"
         />
       </div>
     </div>

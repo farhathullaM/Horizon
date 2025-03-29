@@ -1,3 +1,5 @@
+import BlurText from "../ui/BlurText";
+
 export const FaqItem = ({ icon, question, answer, iconName }) => {
   return (
     <div className="flex bg-white rounded-md gap-4 max-sm:gap-3 cursor-pointer p-4 hover:bg-amber-500 group max-sm:p-3">
@@ -11,9 +13,13 @@ export const FaqItem = ({ icon, question, answer, iconName }) => {
 
       <div className="flex flex-col gap-2 text-black group-hover:text-white max-sm:gap-1">
         <h6 className="font-semibold text-xl max-sm:text-base">{question}</h6>
-        <p className="font-light text-black max-sm:text-sm group-hover:text-white">
-          {answer}
-        </p>
+        <BlurText
+          text={answer}
+          delay={10}
+          animateBy="words"
+          direction="top"
+          className="font-light text-black max-sm:text-sm group-hover:text-white"
+        />
       </div>
     </div>
   );
