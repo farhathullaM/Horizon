@@ -1,6 +1,7 @@
 import aboutbg from "@/assets/images/aboutbg.jpg";
 import { MissionBox } from "@/components/About/MissionBox";
 import BlurText from "@/components/ui/BlurText";
+import CircularText from "@/components/ui/CircularText";
 import DecryptedText from "@/components/ui/DecryptedText";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import TrueFocus from "@/components/ui/TrueFocus";
@@ -14,6 +15,13 @@ export const About = () => {
           src={aboutbg}
           alt="backgound image of about"
           className="w-full object-cover absolute top-0 left-0 z-0 h-screen"
+        />
+
+        <CircularText
+          text="HORIZON*DISTANCE*EDUCATION*"
+          onHover="speedUp"
+          spinDuration={20}
+          className="absolute top-15 right-30 text-6xl font-bold text-[#1E4765] z-10"
         />
         <div className="flex justify-center items-center h-screen z-10 max-w-lg flex-col gap-4 mx-5">
           <TrueFocus
@@ -48,13 +56,24 @@ export const About = () => {
           direction="top"
           className="text-4xl font-semibold text-[#1E4765]"
         />
-        <p className=" w-1/2 max-sm:w-full mx-10 text-center font-medium">
+        {/* <p className=" w-1/2 max-sm:w-full mx-10 text-center font-medium">
           Horizon is more than just an educational consultancy—we are a bridge
           between aspiring learners and top universities. With a commitment to
           excellence, we assist students in choosing the right courses, ensuring
           a smooth admission process, and providing career guidance to help them
           achieve their dreams.
-        </p>
+        </p> */}
+        <BlurText
+          text=" Horizon is more than just an educational consultancy—we are a bridge
+          between aspiring learners and top universities. With a commitment to
+          excellence, we assist students in choosing the right courses, ensuring
+          a smooth admission process, and providing career guidance to help them
+          achieve their dreams"
+          delay={10}
+          animateBy="words"
+          direction="top"
+          className=" w-1/2 max-sm:w-full mx-10 text-center font-medium"
+        />
       </div>
 
       <div className="flex gap-3 items-center mx-4 justify-around py-10  max-md:flex-col">
