@@ -2,7 +2,7 @@ import BlurText from "../ui/BlurText";
 
 export const FaqItem = ({ icon, question, answer, iconName }) => {
   return (
-    <div className="flex bg-white rounded-md gap-4 max-sm:gap-3 cursor-pointer p-4 hover:bg-amber-500 group max-sm:p-3">
+    <div className="flex bg-white rounded-md gap-4 max-sm:gap-3 cursor-pointer p-4 hover:bg-amber-500 group max-sm:p-3 transform duration-200">
       <div className="p-3 border-2 border-gray-400 flex items-center justify-center border-opacity-35  w-fit h-fit rounded-md group-hover:border-white ">
         <img
           src={icon}

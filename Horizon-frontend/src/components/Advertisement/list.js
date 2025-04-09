@@ -13,7 +13,7 @@ import handshakeimg from "@/assets/images/support.webp";
 import targetimg from "@/assets/images/career.webp";
 import badgecheckimg from "@/assets/images/affordable.webp";
 import trendingupimg from "@/assets/images/leader.webp";
-import globeimg from "@/assets/images/wide.webp";
+import globeimg from "@/assets/images/guide.webp";
 import briefcaseimg from "@/assets/images/global.webp";
 import graduationcapimg from "@/assets/images/accredit.webp";
 import factoryimg from "@/assets/images/industry.webp";

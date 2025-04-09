@@ -10,7 +10,7 @@ import { ErrorPage } from "./Pages/ErrorPage";
 
 function App() {
   return (
-    <>
+    <div className="bg-[#F1F1F1]">
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -20,7 +20,7 @@ function App() {
         <Route path="*" element={<ErrorPage />} />
       </Routes>
       <Footer />
-    </>
+    </div>
   );
 }
 

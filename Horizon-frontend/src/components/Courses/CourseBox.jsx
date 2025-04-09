@@ -14,7 +14,7 @@ export const CourseBox = ({ courseName, eligibility, duration, mode }) => {
       <div className="flex gap-4 bg-[#FAFAFA] rounded-xl p-2">
         <div className="w-1/2">
           <p className=" text-[#3D6B8C] text-sm">Duration</p>
-          <p className="font-bold text-[#1E4765]">{duration + "Years"}</p>
+          <p className="font-bold text-[#1E4765]">{duration + " Years"}</p>
         </div>
 
         <div className="w-1/2">

@@ -2,6 +2,7 @@ import box from "@/assets/images/box.png";
 import girl from "@/assets/images/lady.png";
 import SplitText from "../ui/SplitText";
 import { ChevronsRight } from "lucide-react";
+import AnimatedContent from "../ui/AnimatedContent";
 
 export const HeroSection = () => {
   return (
@@ -42,19 +43,30 @@ export const HeroSection = () => {
         </div>
       </div>
 
-      <div className="flex items-end justify-center relative">
-        <img
-          src={girl}
-          alt="girl with book"
-          className="select-none absolute right-10 max-md:h-96 shrink-0 max-sm:w-80 max-sm:h-96 object-cover"
-        />
-        <img
-          src={box}
-          alt="background box"
-          draggable={false}
-          className="select-none max-[1100px]:w-80  h-[80%] max-md:w-96 max-md:h-96 shrink-0 max-sm:w-80 max-sm:h-80 object-cover"
-        />
-      </div>
+      <AnimatedContent
+        distance={150}
+        direction="horizontal"
+        reverse={false}
+        config={{ tension: 80, friction: 20 }}
+        initialOpacity={0.2}
+        animateOpacity
+        scale={1.1}
+        threshold={0.2}
+      >
+        <div className="flex items-end justify-center relative">
+          <img
+            src={girl}
+            alt="girl with book"
+            className="select-none absolute right-10 max-md:h-96 shrink-0 max-sm:w-80 max-sm:h-96 object-cover"
+          />
+          <img
+            src={box}
+            alt="background box"
+            draggable={false}
+            className="select-none max-[1100px]:w-80  h-[80%] max-md:w-96 max-md:h-96 shrink-0 max-sm:w-80 max-sm:h-80 object-cover"
+          />
+        </div>
+      </AnimatedContent>
     </div>
   );
 };

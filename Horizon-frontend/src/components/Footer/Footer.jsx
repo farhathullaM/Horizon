@@ -12,8 +12,8 @@ import { navList } from "../Navbar/navList";
 
 export const Footer = () => {
   return (
-    <footer className="bg-[#0b2d44] text-white pt-4 justify-center flex flex-col items-center max-sm:pt-0 z-10">
-      <div className="flex justify-around max-sm:justify-between w-11/12 border-b-2 border-gray-600 p-2 max-sm:w-full ">
+    <footer className="bg-[#0b2d44] text-white pt-4 justify-center flex flex-col items-center max-sm:pt-0 z-10 max-sm:mt-5 mt-10">
+      <div className="flex justify-around max-sm:justify-between w-11/12 border-b-2  border-gray-600 p-2 max-sm:w-full ">
         <ConnectInfo
           img={location}
           heading={"Find Us"}
@@ -30,8 +30,8 @@ export const Footer = () => {
           heading={"Call Us"}
           info={
             <>
-              0484 4050506 <br />
-              +91 8089027774
+              8086027774 <br />
+              8086027773
             </>
           }
         />
@@ -44,6 +44,7 @@ export const Footer = () => {
 
       <div className="max-sm:justify-between flex justify-around w-full items-start p-2">
         <Link
+          onClick={() => window.scrollTo(0, 0)}
           to="/"
           className="flex flex-col gap-1 pt-5  justify-center cursor-pointer"
         >
@@ -61,6 +62,7 @@ export const Footer = () => {
         <div className="flex flex-col gap-0">
           {navList.map((item) => (
             <Link
+              onClick={() => window.scrollTo(0, 0)}
               key={item.id}
               to={item.link}
               className="underline hover:text-amber-500 hover:font-medium max-sm:text-sm transform duration-200 hover:scale-105 "
@@ -79,6 +81,7 @@ export const Footer = () => {
             />
             <img
               src={instagram}
+
               alt="instagram"
               className="w-9 cursor-pointer max-sm:w-8 transform ease-in-out duration-200 hover:scale-110"
             />

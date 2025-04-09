@@ -24,8 +24,12 @@ export const Contact = () => {
             </p>
           </div>
           <div className="flex flex-col gap-1 max-md:w-full">
-            <Info img={phone} name={"Telephone"} info={"9807654321"} />
-            <Info img={mail} name={"Email"} info={"horizon@gmail.com"} />
+            <Info img={phone} name={"Telephone"} info={"8086027773"} />
+            <Info
+              img={mail}
+              name={"Email"}
+              info={"horizonadmission@gmail.com"}
+            />
           </div>
         </div>
         <div className="w-1/2 max-md:w-full">

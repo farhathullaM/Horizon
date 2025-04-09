@@ -1,11 +1,11 @@
 import aboutbg from "@/assets/images/aboutbg.jpg";
 import { MissionBox } from "@/components/About/MissionBox";
+import { LocationHorizon } from "@/components/Map/locationHorizon";
 import BlurText from "@/components/ui/BlurText";
 import CircularText from "@/components/ui/CircularText";
 import DecryptedText from "@/components/ui/DecryptedText";
-import ScrollReveal from "@/components/ui/ScrollReveal";
+import SplitText from "@/components/ui/SplitText";
 import TrueFocus from "@/components/ui/TrueFocus";
-import VariableProximity from "@/components/ui/VariableProximity";
 
 export const About = () => {
   return (
@@ -21,7 +21,7 @@ export const About = () => {
           text="HORIZON*DISTANCE*EDUCATION*"
           onHover="speedUp"
           spinDuration={20}
-          className="absolute top-15 right-30 text-6xl font-bold text-[#1E4765] z-10"
+          className="absolute top-15 right-30 text-6xl font-bold text-[#1E4765] z-10 max-md:top-10 max-md:right-10 max-md:text-4xl max-sm:text-2xl max-sm:top-2 max-sm:right-1"
         />
         <div className="flex justify-center items-center h-screen z-10 max-w-lg flex-col gap-4 mx-5">
           <TrueFocus
@@ -30,7 +30,7 @@ export const About = () => {
             blurAmount={5}
             borderColor="#1E4765"
             animationDuration={2}
-            className="text-4xl font-bold text-[#1E4765]"
+            className="text-4xl font-bold flex-wrap text-[#919496] max-sm:text-2xl max-sm:font-semibold w-fit "
             pauseBetweenAnimations={1}
           />
 
@@ -49,20 +49,16 @@ export const About = () => {
       </div>
 
       <div className="flex flex-col gap-4 max-md:-mt-10 items-center justify-center py-10 bg-[#F1F1F1] mx-10 max-sm:mx-4">
-        <BlurText
+        <SplitText
           text="Who We Are"
+          className="text-3xl font-bold text-center text-gray-500 "
           delay={150}
-          animateBy="words"
-          direction="top"
-          className="text-4xl font-semibold text-[#1E4765]"
+          animationFrom={{ opacity: 0, transform: "translate3d(0,50px,0)" }}
+          animationTo={{ opacity: 1, transform: "translate3d(0,0,0)" }}
+          easing="easeOutCubic"
+          threshold={0.2}
+          rootMargin="-50px"
         />
-        {/* <p className=" w-1/2 max-sm:w-full mx-10 text-center font-medium">
-          Horizon is more than just an educational consultancy—we are a bridge
-          between aspiring learners and top universities. With a commitment to
-          excellence, we assist students in choosing the right courses, ensuring
-          a smooth admission process, and providing career guidance to help them
-          achieve their dreams.
-        </p> */}
         <BlurText
           text=" Horizon is more than just an educational consultancy—we are a bridge
           between aspiring learners and top universities. With a commitment to
@@ -72,7 +68,7 @@ export const About = () => {
           delay={10}
           animateBy="words"
           direction="top"
-          className=" w-1/2 max-sm:w-full mx-10 text-center font-medium"
+          className=" w-1/2 max-sm:w-full mx-10 text-center text-gray-800 font-medium"
         />
       </div>
 
@@ -102,6 +98,8 @@ export const About = () => {
             grow, and thrive."
         />
       </div>
+
+      <LocationHorizon />
     </div>
   );
 };
