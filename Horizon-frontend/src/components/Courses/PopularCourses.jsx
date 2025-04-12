@@ -77,7 +77,7 @@ export const PopularCourses = ({ isHomePage = false }) => {
         </TabsList>
 
         <TabsContent value={selectedTab}>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-5 gap-y-5">
             {displayCourses.length > 0 ? (
               displayCourses.map((course, index) => (
                 <CourseBox

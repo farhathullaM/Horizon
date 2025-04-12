@@ -1,6 +1,6 @@
 export const ChoiceItem = ({ heading, iconName, icon, img }) => {
   return (
-    <div className="max-w-72 border border-[#1E4765] rounded-4xl h-52 flex items-end relative cursor-pointer group overflow-hidden">
+    <div className="max-w-72 min-w-60px border border-[#1E4765] rounded-4xl h-52 flex items-end relative cursor-pointer group overflow-hidden">
       <img
         src={img}
         alt={iconName}

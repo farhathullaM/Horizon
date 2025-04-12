@@ -54,10 +54,10 @@ export const ContactForm = () => {
     e.preventDefault();
     const validationErrors = validate();
 
-    const formDataObj = new FormData(formRef.current);
-    for (const [key, value] of formDataObj.entries()) {
-      console.log(`${key}: ${value}`);
-    }
+    // const formDataObj = new FormData(formRef.current);
+    // for (const [key, value] of formDataObj.entries()) {
+    //   console.log(`${key}: ${value}`);
+    // }
 
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
@@ -92,7 +92,7 @@ export const ContactForm = () => {
     <form
       ref={formRef}
       onSubmit={handleSubmit}
-      className="flex flex-col gap-3 w-full"
+      className="flex flex-col gap-3 w-full max-w-[500px]"
     >
       {/* Name Field */}
       <div className="flex flex-col gap-1">
@@ -136,7 +136,7 @@ export const ContactForm = () => {
 
       <div className="flex flex-col gap-1">
         <label htmlFor="phone" className="font-medium">
-          phone 
+          phone
         </label>
         <input
           name="phone"
@@ -167,7 +167,7 @@ export const ContactForm = () => {
 
       <button
         type="submit"
-        className="rounded-3xl bg-amber-400 w-fit px-4 py-2 hover:bg-amber-500 active:bg-amber-600"
+        className="cursor-pointer select-none rounded-3xl bg-amber-400 w-fit px-4 py-2 hover:bg-amber-500 active:bg-amber-600"
       >
         {loading ? "Sending..." : "Send Message"}
       </button>

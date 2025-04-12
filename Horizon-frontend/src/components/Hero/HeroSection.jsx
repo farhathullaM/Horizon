@@ -3,6 +3,7 @@ import girl from "@/assets/images/lady.png";
 import SplitText from "../ui/SplitText";
 import { ChevronsRight } from "lucide-react";
 import AnimatedContent from "../ui/AnimatedContent";
+import { Link } from "react-router-dom";
 
 export const HeroSection = () => {
   return (
@@ -28,13 +29,21 @@ export const HeroSection = () => {
         </p>
 
         <div className="flex gap-3 select-none max-sm:flex-col">
-          <button className="bg-[#FF9D01] text-white py-3 px-6 font-semibold rounded-xl  cursor-pointer hover:bg-[#ff8801]">
+          <Link
+            onClick={() => window.scrollTo(0, 0)}
+            to={"/contact"}
+            className="bg-[#FF9D01] text-white py-3 px-6 font-semibold rounded-xl  cursor-pointer hover:bg-[#ff8801]"
+          >
             Get a free Consultation
-          </button>
-          <button className="text-[#1E4765] border-2 border-[#1E4765] py-3 px-6 cursor-pointer hover:bg-[#daebf6] flex items-center gap-1  font-semibold rounded-xl">
+          </Link>
+          <Link
+            onClick={() => window.scrollTo(0, 0)}
+            to="/courses"
+            className="text-[#1E4765] border-2 border-[#1E4765] py-3 px-6 cursor-pointer hover:bg-[#daebf6] flex items-center gap-1  font-semibold rounded-xl"
+          >
             View Programmes
             <ChevronsRight size={20} />
-          </button>
+          </Link>
         </div>
 
         <div className="flex gap-3">

@@ -7,6 +7,7 @@ import { About } from "./Pages/About";
 import { ContactPage } from "./Pages/ContactPage";
 import { Footer } from "./components/Footer/Footer";
 import { ErrorPage } from "./Pages/ErrorPage";
+import { Whatsapp } from "./components/ui/Whatsapp";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/contact" element={<ContactPage />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
+      <Whatsapp />
       <Footer />
     </div>
   );
