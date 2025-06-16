@@ -23,7 +23,7 @@ export const WeGuide = () => {
           className="text-[#1E4765] w-[50%] max-sm:w-full max-sm:text-sm"
         />
 
-        <AnimatedContent
+        {/* <AnimatedContent
           distance={150}
           direction="vertical"
           reverse={false}
@@ -32,13 +32,13 @@ export const WeGuide = () => {
           animateOpacity
           scale={1.1}
           threshold={0.2}
-        >
+        > */}
           <img
             src={manlooking}
             alt="advertisement image"
-            className="select-none w-96 max-md:w-72"
+            className="select-none w-96 max-md:w-72 animate-pulse"
           />
-        </AnimatedContent>
+        {/* </AnimatedContent> */}
       </div>
     </div>
   );

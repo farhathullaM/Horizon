@@ -16,13 +16,14 @@ import { useRef } from "react";
 export const Navbar = () => {
   const sheetClose = useRef();
   const location = useLocation();
+
   const handleMobNav = () => {
     window.scrollTo(0, 0);
     sheetClose.current.click();
   };
 
   return (
-    <header className="flex justify-around h-18 w-full items-center gap-4 shadow-md max-sm:justify-between max-sm:px-5 sticky top-0 bg-white z-40">
+    <header className="flex justify-between items-center h-18 w-full gap-4 shadow-md max-sm:justify-between px-15 max-md:px-5 sticky top-0 bg-[#cdcbcb] z-40">
       <Link to="/">
         <img
           src={horizon_logo}
@@ -37,7 +38,7 @@ export const Navbar = () => {
           <Link
             onClick={() => window.scrollTo(0, 0)}
             key={item.id}
-            className={`font-medium hover:font-semibold transform duration-200 hover:scale-105 hover:text-[#1E4765] ${
+            className={`font-medium hover:font-semibold text-lg transform duration-200 hover:scale-105 hover:text-[#1E4765] ${
               location.pathname === item.link
                 ? "text-[#3b8eca] font-semibold"
                 : "text-[#595959]"
@@ -51,9 +52,9 @@ export const Navbar = () => {
 
       <Sheet>
         <SheetTrigger>
-          <Menu className="hidden max-sm:block border-2 rounded-sm border-black cursor-pointer hover:bg-[#1E4765] hover:text-white p-1 w-8 h-8" />
+          <Menu className="hidden bg-white max-sm:block border-2 rounded-sm border-black cursor-pointer hover:bg-[#1E4765] hover:text-white p-1 w-8 h-8" />
         </SheetTrigger>
-        <SheetContent className="w-60">
+        <SheetContent className="w-60  bg-white">
           <SheetHeader>
             <SheetTitle></SheetTitle>
             <SheetDescription></SheetDescription>
@@ -64,7 +65,7 @@ export const Navbar = () => {
               <Link
                 onClick={handleMobNav}
                 key={item.id}
-                className={`font-medium hover:font-semibold text-2xl transform duration-200 hover:scale-105 hover:text-[#1E4765] ${
+                className={`hover:font-bold font-semibold text-2xl transform duration-200 hover:scale-105 hover:text-[#1E4765]  ${
                   location.pathname === item.link
                     ? "text-[#3b8eca] font-semibold"
                     : "text-[#595959]"
@@ -79,11 +80,14 @@ export const Navbar = () => {
           <SheetClose ref={sheetClose}></SheetClose>
         </SheetContent>
       </Sheet>
-      
-      <div className="flex items-center gap-2 border-2 px-4 py-1 rounded-md max-sm:hidden">
-        <PhoneCall size={16} />
+
+      <Link
+        to="tel:8086027773"
+        className="flex items-center gap-2 border-2 px-4 py-2 rounded-lg max-sm:hidden text-white bg-[#1E4765]  hover:bg-[#3a4f5f]"
+      >
+        <PhoneCall size={16} color="white" />
         <p> 8086027773</p>
-      </div>
+      </Link>
     </header>
   );
 };

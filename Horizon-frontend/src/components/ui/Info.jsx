@@ -6,7 +6,8 @@ export const Info = ({ img, name, info }) => {
       </div>
       <div >
         <p className="text-sm text-gray-600">{name}</p>
-        <p className="text-sm font-medium text-black">{info}</p>
+        {/* <p className="text-sm font-medium text-black">{info}</p> */}
+        {info}
       </div>
     </div>
   );

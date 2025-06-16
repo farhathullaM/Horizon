@@ -136,7 +136,7 @@ export const ContactForm = () => {
 
       <div className="flex flex-col gap-1">
         <label htmlFor="phone" className="font-medium">
-          phone
+          Phone
         </label>
         <input
           name="phone"
@@ -167,7 +167,7 @@ export const ContactForm = () => {
 
       <button
         type="submit"
-        className="cursor-pointer select-none rounded-3xl bg-amber-400 w-fit px-4 py-2 hover:bg-amber-500 active:bg-amber-600"
+        className="cursor-pointer select-none rounded-3xl bg-amber-400 w-fit px-4 py-2 hover:bg-[#FF9D01] active:bg-amber-600"
       >
         {loading ? "Sending..." : "Send Message"}
       </button>

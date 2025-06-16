@@ -10,7 +10,7 @@ export const ConnectInfo = ({ img, heading, info }) => {
       />
       <div className="flex flex-col">
         <p className="font-semibold max-sm:text-sm">{heading}</p>
-        <p className="font-light text-sm">{info}</p>
+        {info}
       </div>
     </div>
   );

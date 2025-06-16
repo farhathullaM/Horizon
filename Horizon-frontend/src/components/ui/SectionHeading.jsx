@@ -14,7 +14,7 @@ export const SectionHeading = ({
 
       <h3
         className={cn(
-          "text-5xl font-semibold text-center max-md:text-3xl max-sm:text-2xl",
+          "text-6xl font-semibold text-center max-md:text-3xl max-sm:text-2xl",
           className
         )}
       >

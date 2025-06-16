@@ -13,7 +13,7 @@ import { navList } from "../Navbar/navList";
 export const Footer = () => {
   return (
     <footer className="bg-[#0b2d44] text-white pt-4 justify-center flex flex-col items-center max-sm:pt-0 z-10 max-sm:mt-5 mt-10">
-      <div className="flex justify-around max-sm:justify-between w-11/12 border-b-2  border-gray-600 p-2 max-sm:w-full ">
+      <div className="flex justify-around max-sm:justify-between w-11/12 border-b-2  border-gray-600 p-2 max-sm:w-full max-md:flex-col max-md:pl-10 max-md:gap-5 max-md:py-4 ">
         <ConnectInfo
           img={location}
           heading={"Find Us"}
@@ -29,16 +29,27 @@ export const Footer = () => {
           img={phone}
           heading={"Call Us"}
           info={
-            <>
-              8086027774 <br />
-              8086027773
-            </>
+            <div className="flex flex-col gap-1">
+              <Link to={`tel:8086027774`} className="font-light text-sm">
+                8086027774
+              </Link>
+              <Link to={`tel:8086027773`} className="font-light text-sm">
+                8086027773
+              </Link>
+            </div>
           }
         />
         <ConnectInfo
           img={mail}
           heading={"Email Us"}
-          info={" horizonadmission@gmail.com"}
+          info={
+            <Link
+              to={`mailto:horizonadmission@gmail.com`}
+              className="font-light text-sm"
+            >
+              horizonadmission@gmail.com
+            </Link>
+          }
         />
       </div>
 
@@ -59,7 +70,7 @@ export const Footer = () => {
           </p>
         </Link>
 
-        <div className="flex flex-col gap-0">
+        <div className="flex flex-col gap-0 max-md:hidden">
           {navList.map((item) => (
             <Link
               onClick={() => window.scrollTo(0, 0)}
@@ -75,13 +86,18 @@ export const Footer = () => {
           <p className="font-semibold">Follow Us</p>
           <div className="flex gap-3 max-sm:flex-wrap">
             <img
+              onClick={() => window.open("https://www.facebook.com/horison.di")}
               src={facebook}
               alt="facebook"
               className="w-9 cursor-pointer transform max-sm:w-8 ease-in-out duration-200 hover:scale-110"
             />
             <img
+              onClick={() =>
+                window.open(
+                  "https://www.instagram.com/_horizon_distance_education/"
+                )
+              }
               src={instagram}
-
               alt="instagram"
               className="w-9 cursor-pointer max-sm:w-8 transform ease-in-out duration-200 hover:scale-110"
             />
