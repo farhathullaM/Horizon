@@ -20,7 +20,7 @@ export const Home = () => {
       <RightChoice />
       <OurUniversity />
       <FAQ />
-      <Doubt />
+      <Doubt heading={"Still have Doubt?"} />
       <Contact />
     </div>
   );

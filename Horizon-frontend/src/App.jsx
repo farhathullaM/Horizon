@@ -8,6 +8,9 @@ import { ContactPage } from "./Pages/ContactPage";
 import { Footer } from "./components/Footer/Footer";
 import { ErrorPage } from "./Pages/ErrorPage";
 import { Whatsapp } from "./components/ui/Whatsapp";
+import OpenSchool from "./Pages/OpenSchool";
+import SkillProgram from "./Pages/SkillProgram";
+import University from "./Pages/University";
 
 function App() {
   return (
@@ -18,6 +21,9 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/courses" element={<CoursesPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/openschool" element={<OpenSchool />} />
+        <Route path="/skillprogram" element={<SkillProgram />} />
+        <Route path="/university/:id" element={<University />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
       <Whatsapp />

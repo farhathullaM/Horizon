@@ -4,6 +4,10 @@ body{
    font-family: "Space Grotesk", sans-serif;
 }
 
+@import "tailwindcss"; 
+@import "tw-animate-css";
+
+
 
 /* @custom-variant dark (&:is(.dark *)); */
 

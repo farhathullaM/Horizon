@@ -3,11 +3,11 @@ import doubt from "../../assets/connect.json";
 import { Link } from "react-router-dom";
 import { PhoneOutgoing } from "lucide-react";
 
-const Doubt = () => {
+const Doubt = ({heading}) => {
   return (
     <div className="py-10 bg-[#ffffff] px-2">
       <h2 className="text-6xl font-bold text-center max-md:text-3xl max-sm:text-2xl text-[#1E4765] items-center flex w-full  justify-center">
-        Still have Doubts{" "}
+        {heading}
         <span className="text-[#bdc704] text-8xl pl-5 animate-bounce">?</span>
       </h2>
       <div className="flex items-center justify-center max-md:flex-col">

@@ -12,7 +12,7 @@ import { navList } from "../Navbar/navList";
 
 export const Footer = () => {
   return (
-    <footer className="bg-[#0b2d44] text-white pt-4 justify-center flex flex-col items-center max-sm:pt-0 z-10 max-sm:mt-5 mt-10">
+    <footer className="bg-[#0b2d44] text-white pt-4 justify-center flex flex-col items-center max-sm:pt-0 z-10">
       <div className="flex justify-around max-sm:justify-between w-11/12 border-b-2  border-gray-600 p-2 max-sm:w-full max-md:flex-col max-md:pl-10 max-md:gap-5 max-md:py-4 ">
         <ConnectInfo
           img={location}
@@ -86,7 +86,7 @@ export const Footer = () => {
           <p className="font-semibold">Follow Us</p>
           <div className="flex gap-3 max-sm:flex-wrap">
             <img
-              onClick={() => window.open("https://www.facebook.com/horison.di")}
+              onClick={() => window.open("https://www.facebook.com/profile.php?id=100063723082804")}
               src={facebook}
               alt="facebook"
               className="w-9 cursor-pointer transform max-sm:w-8 ease-in-out duration-200 hover:scale-110"
