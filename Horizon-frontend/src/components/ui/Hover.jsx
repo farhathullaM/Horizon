@@ -12,7 +12,7 @@ const Hover = ({ label, pathname, content }) => {
     <HoverCard openDelay={100}>
       <HoverCardTrigger
         className={`font-medium hover:font-semibold items-center flex text-lg transform cursor-pointer duration-200 hover:scale-105 hover:text-[#1E4765] ${
-          location.pathname === pathname
+          location.pathname.includes(pathname)
             ? "text-[#3b8eca] font-semibold"
             : "text-[#595959]"
         }`}

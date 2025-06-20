@@ -17,8 +17,8 @@ export const categories = [
   },
   {
     id: 3,
-    name: "NIOS Admission (10,+2)",
+    name: "BOSSE Admission (10, +2)",
     img: plus,
-    desc: "We offer a 6-month NIOS-certified online course for 10th and +2 students. To make learning easier and more effective, we provide high-quality online lectures and study materials. The final examination is conducted by NIOS, a central government-recognized body, and is mandatory for certification.",
+    desc: "We offer admission support for Secondary and Senior Secondary programs through BOSSE (Board of Open Schooling and Skill Education), Sikkim. With flexible study options and quality learning materials, BOSSE is a government-recognized board ideal for school dropouts, working professionals, and distance learners",
   },
 ];

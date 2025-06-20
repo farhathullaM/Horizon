@@ -11,10 +11,12 @@ import { Whatsapp } from "./components/ui/Whatsapp";
 import OpenSchool from "./Pages/OpenSchool";
 import SkillProgram from "./Pages/SkillProgram";
 import University from "./Pages/University";
+import ScrollToTop from "./utils/ScrollToTop";
 
 function App() {
   return (
     <div className="bg-[#F1F1F1]">
+      <ScrollToTop />
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />

@@ -3,7 +3,7 @@ import { categories } from "./category";
 const Explore = () => {
   return (
     <div className="flex flex-col gap-4 py-8">
-      <h3 className="text-5xl font-bold text-center">Explore Our Course Categories</h3>
+      <h3 className="text-5xl font-bold text-center py-5 max-md:py-2">Explore Our Course Categories</h3>
 
       <div className="flex flex-wrap gap-15 max-md:gap-5 p-2 w-full justify-center">
         {categories.map((category) => (

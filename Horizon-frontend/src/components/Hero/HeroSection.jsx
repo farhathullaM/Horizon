@@ -1,5 +1,7 @@
 import box from "@/assets/images/box.png";
 import girl from "@/assets/images/ai-lady.png";
+import hero1 from "@/assets/images/hero1.webp";
+import hero2 from "@/assets/images/hero2.webp";
 import SplitText from "../ui/SplitText";
 import { ChevronsRight } from "lucide-react";
 import AnimatedContent from "../ui/AnimatedContent";
@@ -30,14 +32,12 @@ export const HeroSection = () => {
 
         <div className="flex gap-3 select-none max-sm:flex-col">
           <Link
-            onClick={() => window.scrollTo(0, 0)}
             to={"/contact"}
             className="bg-[#FF9D01] text-white py-3 px-6 font-semibold rounded-xl  cursor-pointer hover:bg-[#ff8801]"
           >
             Get a free Consultation
           </Link>
           <Link
-            onClick={() => window.scrollTo(0, 0)}
             to="/courses"
             className="text-[#1E4765] border-2 border-[#1E4765] py-3 px-6 cursor-pointer hover:bg-[#daebf6] flex items-center gap-1  font-semibold rounded-xl"
           >
@@ -47,8 +47,20 @@ export const HeroSection = () => {
         </div>
 
         <div className="flex gap-3">
-          <div className="w-52 rounded-2xl h-48 bg-[#D9D9D9]"></div>
-          <div className="w-52 rounded-2xl h-48 bg-[#D9D9D9]"></div>
+          <div className="w-52 rounded-2xl h-48 overflow-hidden p-1 bg-[#D9D9D9]">
+            <img
+              src={hero1}
+              alt="study"
+              className="object-cover rounded-xl select-none h-full w-full"
+            />
+          </div>
+          <div className="w-52 rounded-2xl overflow-hidden p-1 h-48 bg-[#D9D9D9]">
+            <img
+              src={hero2}
+              alt="study"
+              className="object-cover select-none rounded-xl h-full w-full"
+            />
+          </div>
         </div>
       </div>
 

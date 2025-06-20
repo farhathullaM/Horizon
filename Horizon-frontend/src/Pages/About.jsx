@@ -1,5 +1,7 @@
 import aboutbg from "@/assets/images/aboutbg.jpg";
 import { MissionBox } from "@/components/About/MissionBox";
+import { RightChoice } from "@/components/Advertisement/RightChoice";
+import Doubt from "@/components/Contact/Doubt";
 import { LocationHorizon } from "@/components/Map/locationHorizon";
 import BlurText from "@/components/ui/BlurText";
 import CircularText from "@/components/ui/CircularText";
@@ -14,7 +16,7 @@ export const About = () => {
         <img
           src={aboutbg}
           alt="backgound image of about"
-          className="w-full object-cover absolute top-0 left-0 z-0 lg:h-dvh"
+          className="w-full object-cover absolute top-0 left-0 z-0 lg:h-dvh sm:h-[70vh] h-[60vh]"
         />
 
         {/* <CircularText
@@ -23,7 +25,7 @@ export const About = () => {
           spinDuration={20}
           className="absolute top-15 right-30 text-6xl font-bold text-[#1E4765] z-10 max-md:top-10 max-md:right-10 max-md:text-4xl max-sm:text-2xl max-sm:top-2 max-sm:right-1"
         /> */}
-        <div className="flex justify-center items-center h-screen z-10 max-w-lg flex-col gap-4 mx-5">
+        <div className="flex justify-center items-center h-screen z-10 max-w-lg flex-col max-md:h-[60vh] gap-4 mx-5">
           {/* <TrueFocus
             sentence="About Horizon"
             manualMode={false}
@@ -39,7 +41,7 @@ export const About = () => {
 
           <DecryptedText
             text="Horizon is a leading provider of distance education. The programs offered by Horizon are intended to serve the needs of mature adults, individuals who are serious about completing a degree program. With Horizon's flexible study options, you can study from home, work, or anywhere in the world, at a time that suits you and your lifestyle. Depending upon the degree program you select, you can choose offline or online."
-            parentClassName="text-lg font-semibold text-[#595959] max-md:w-full max-md:text-sm"
+            parentClassName="text-lg font-semibold text-[#595959] max-md:w-full max-md:text-base"
             animateOn="view"
             revealDirection="start"
             maxIterations={13}
@@ -88,7 +90,9 @@ export const About = () => {
         />
       </div>
 
-      {/* <LocationHorizon /> */}
+      <RightChoice />
+      <Doubt heading={"Do you want to Connect"} />
+      <LocationHorizon />
     </div>
   );
 };

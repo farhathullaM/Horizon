@@ -17,10 +17,10 @@ const Doubt = ({heading}) => {
           className="w-1/2 rounded-full max-md:w-full"
         />
         <div className="w-1/2 flex items-center justify-center max-md:w-full">
-          <div className="rounded-3xl p-10 bg-[#dae2f7] w-fit max-md:w-full">
+          <div className="rounded-3xl p-10 max-md:p-5 bg-[#dae2f7] w-fit max-md:w-full">
             <Link
               to={`tel:8086027773`}
-              className="text-4xl  font-semibold text-center max-md:text-2xl max-sm:text-xl bg-[#1E4765] rounded-xl py-3 px-15 text-[#ffffff] items-center flex w-full gap-3 max-md:w-full max-md:px-0  justify-center cursor-pointer hover:scale-105 transform duration-200"
+              className="text-4xl  font-semibold text-center max-md:text-2xl max-sm:text-xl bg-[#1E4765] rounded-2xl py-3 px-15 text-[#ffffff] items-center flex w-full gap-3 max-md:w-full max-md:px-0  justify-center cursor-pointer hover:scale-105 transform duration-200"
             >
               <p>Make a Call</p>
               <PhoneOutgoing size={30} />
