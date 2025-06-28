@@ -1,7 +1,6 @@
 import horizon_logo from "@/assets/logo/horizon_blue.png";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, PhoneCall } from "lucide-react";
-import { navList } from "./navList";
 import Hover from "../ui/Hover";
 import UniversityList from "./UniversityList";
 import ProgramList from "./ProgramList";
