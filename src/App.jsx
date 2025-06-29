@@ -1,35 +1,52 @@
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import { Home } from "./Pages/Home";
-import { Navbar } from "./components/Navbar/Navbar";
 import { CoursesPage } from "./Pages/CoursesPage";
 import { About } from "./Pages/About";
 import { ContactPage } from "./Pages/ContactPage";
-import { Footer } from "./components/Footer/Footer";
 import { ErrorPage } from "./Pages/ErrorPage";
-import { Whatsapp } from "./components/ui/Whatsapp";
 import OpenSchool from "./Pages/OpenSchool";
 import SkillProgram from "./Pages/SkillProgram";
 import University from "./Pages/University";
 import ScrollToTop from "./utils/ScrollToTop";
+import PublicLayout from "./layouts/PublicLayout";
+import AdminLayout from "./layouts/AdminLayout";
+import Universities from "./Pages/Admin/Universities";
+import Courses from "./Pages/Admin/Courses";
+import FAQs from "./Pages/Admin/FAQs";
+import Testimonials from "./Pages/Admin/Testimonials";
+import Blogs from "./Pages/Admin/Blogs";
+import Contacts from "./Pages/Admin/Contacts";
+import Applications from "./Pages/Admin/Applications";
 
 function App() {
   return (
     <div className="bg-[#F1F1F1]">
       <ScrollToTop />
-      <Navbar />
+
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/courses" element={<CoursesPage />} />
-        <Route path="/contact" element={<ContactPage />} />
-        <Route path="/openschool" element={<OpenSchool />} />
-        <Route path="/skillprogram" element={<SkillProgram />} />
-        <Route path="/university/:id" element={<University />} />
+        <Route path="/" element={<PublicLayout />}>
+          <Route index element={<Home />} />
+          <Route path="about" element={<About />} />
+          <Route path="courses" element={<CoursesPage />} />
+          <Route path="contact" element={<ContactPage />} />
+          <Route path="openschool" element={<OpenSchool />} />
+          <Route path="skillprogram" element={<SkillProgram />} />
+          <Route path="university/:id" element={<University />} />
+        </Route>
+
+        <Route path="/admin" element={<AdminLayout />}>
+          <Route index element={<Universities />} />
+          <Route path="courses" element={<Courses />} />
+          <Route path="faqs" element={<FAQs />} />
+          <Route path="testimonials" element={<Testimonials />} />
+          <Route path="blogs" element={<Blogs />} />
+          <Route path="contacts" element={<Contacts />} />
+          <Route path="applications" element={<Applications />} />
+        </Route>
+
         <Route path="*" element={<ErrorPage />} />
       </Routes>
-      <Whatsapp />
-      <Footer />
     </div>
   );
 }

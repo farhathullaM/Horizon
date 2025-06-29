@@ -1,4 +1,3 @@
-import React from "react";
 import { SectionHeading } from "../ui/SectionHeading";
 import { universities } from "./universities";
 

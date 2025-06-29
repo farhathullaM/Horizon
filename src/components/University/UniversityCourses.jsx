@@ -1,8 +1,6 @@
-import React from "react";
 import UnivCourseItem from "../Courses/UnivCourseItem";
-import { univCourses } from "../Courses/courseDetails";
 
-const UniversityCourses = () => {
+const UniversityCourses = ({ courses }) => {
   return (
     <div className="flex items-center flex-col gap-3 p-5 max-md:p-2">
       <h3 className="text-4xl font-semibold text-[#fff] ">
@@ -15,10 +13,10 @@ const UniversityCourses = () => {
       </p>
 
       <div className="flex flex-wrap gap-5 justify-center mt-5">
-        {univCourses.map((course, index) => (
+        {courses.map((course) => (
           <UnivCourseItem
-            key={index}
-            courseName={course.courseName}
+            key={course._id}
+            courseName={course.name}
             eligibility={course.eligibility}
             duration={course.duration}
             mode={course.mode}

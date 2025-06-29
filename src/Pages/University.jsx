@@ -1,12 +1,25 @@
 import { capitalizeText } from "@/utils/capitalizeFirstLetter";
 import UniversityCourses from "@/components/University/UniversityCourses";
 import { useParams } from "react-router-dom";
-import { universityData } from "@/components/University/universities";
+import { useQuery } from "@tanstack/react-query";
+import { getUniversityDetails } from "@/services/public/publicRoutes";
+import { BASE_FILE_URL } from "@/lib/url";
 
 const University = () => {
   const { id } = useParams();
 
-  const university = universityData.find((univ) => univ.id === Number(id));
+  const { data, isLoading, isError } = useQuery({
+    queryKey: ["universityData", id],
+    queryFn: () => getUniversityDetails(id),
+  });
+
+  // console.log(data);
+
+  const university = data?.university;
+  const courses = data?.courses;
+
+  if (isLoading) return <div>Loading...</div>;
+  if (isError) return <div>Error</div>;
 
   return (
     <div className="bg-[#253959]">
@@ -20,7 +33,7 @@ const University = () => {
           </p>
           <div className="bg-[#f7f4f4] rounded-xl w-fit border-2 px-5 py-3">
             <img
-              src={university.icon}
+              src={BASE_FILE_URL + "university/" + university.icon}
               alt={`${university.name} logo`}
               className="w-20"
             />
@@ -28,7 +41,7 @@ const University = () => {
         </div>
 
         <img
-          src={university.img}
+          src={BASE_FILE_URL + "university/" + university.image}
           alt={university.name}
           className="hidden max-md:block mt-10 rounded-4xl"
         />
@@ -47,7 +60,7 @@ const University = () => {
       </div>
       <div className="w-full h-20 bg-[#1E3252] -mt-16" />
 
-      <UniversityCourses />
+      <UniversityCourses courses={courses} />
     </div>
   );
 };
