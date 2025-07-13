@@ -15,9 +15,9 @@ import SheetContainer from "../ui/SheetContainer";
 import { EditBtn } from "../ui/EditBtn";
 import { DeleteBtn } from "../ui/DeleteBtn";
 import AddButton from "./elememts/AddButton";
-import AddUniversity from "../Forms/AddUniversity";
 import { useFaqActions } from "@/hooks/useFaqActions";
 import { fetchFaqs } from "@/services/admin/faq";
+import AddFaq from "../Forms/AddFaq";
 
 const FaqTable = () => {
   const [limit, setLimit] = useState(15);
@@ -42,7 +42,7 @@ const FaqTable = () => {
       <SheetContainer
         triggerBtn={<AddButton text="Add FAQ" />}
         title="Add Faq"
-        children={<AddUniversity />}
+        children={<AddFaq />}
       />
 
       <Table className="max-sm:text-xs">
@@ -71,10 +71,10 @@ const FaqTable = () => {
                   <TableCell>{faq.question}</TableCell>
                   <TableCell>{faq.answer}</TableCell>
                   <TableCell>
-                    <SheetContainer
+                    {/* <SheetContainer
                       triggerBtn={<EditBtn />}
                       title={"Edit Faq"}
-                    />
+                    /> */}
 
                     <DeleteBtn onClick={() => remove(faq._id)} />
                   </TableCell>

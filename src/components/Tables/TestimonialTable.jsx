@@ -14,9 +14,9 @@ import SheetContainer from "../ui/SheetContainer";
 import { EditBtn } from "../ui/EditBtn";
 import { DeleteBtn } from "../ui/DeleteBtn";
 import AddButton from "./elememts/AddButton";
-import AddUniversity from "../Forms/AddUniversity";
 import { useTestimonalActions } from "@/hooks/useTestimonalActions";
 import { fetchTestimonials } from "@/services/admin/testimonials";
+import AddTestimonial from "../Forms/AddTestimonial";
 
 const TestimonialTable = () => {
   const [limit, setLimit] = useState(15);
@@ -39,9 +39,9 @@ const TestimonialTable = () => {
   return (
     <>
       <SheetContainer
-        triggerBtn={<AddButton text="Add University" />}
-        title="Add University"
-        children={<AddUniversity />}
+        triggerBtn={<AddButton text="Add Testimonial" />}
+        title="Add Testimonial"
+        children={<AddTestimonial />}
       />
 
       <Table className="max-sm:text-xs">
@@ -74,10 +74,10 @@ const TestimonialTable = () => {
                   <TableCell>{testimonial.university}</TableCell>
                   <TableCell>{testimonial.course}</TableCell>
                   <TableCell>
-                    <SheetContainer
+                    {/* <SheetContainer
                       triggerBtn={<EditBtn />}
                       title={"Edit testimonialersity"}
-                    />
+                    /> */}
 
                     <DeleteBtn onClick={() => remove(testimonial._id)} />
                   </TableCell>

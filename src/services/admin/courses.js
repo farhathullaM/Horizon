@@ -1,6 +1,7 @@
 import apiClient from "@/lib/apiClient";
 
 const addCourse = async (formData) => {
+  console.log(formData);
   const response = await apiClient.post("/course", formData, {
     headers: {
       "Content-Type": "multipart/form-data",

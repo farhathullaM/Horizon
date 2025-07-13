@@ -72,10 +72,10 @@ const UniversityTable = () => {
                   <TableCell>{univ.description}</TableCell>
                   <TableCell>{univ.type}</TableCell>
                   <TableCell>
-                    <SheetContainer
+                    {/* <SheetContainer
                       triggerBtn={<EditBtn />}
                       title={"Edit University"}
-                    />
+                    /> */}
 
                     <DeleteBtn onClick={() => remove(univ._id)} />
                   </TableCell>

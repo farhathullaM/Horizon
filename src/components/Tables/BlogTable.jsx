@@ -14,9 +14,9 @@ import SheetContainer from "../ui/SheetContainer";
 import { EditBtn } from "../ui/EditBtn";
 import { DeleteBtn } from "../ui/DeleteBtn";
 import AddButton from "./elememts/AddButton";
-import AddUniversity from "../Forms/AddUniversity";
 import { useBlogActions } from "@/hooks/useBlogActions";
 import { fetchBlogs } from "@/services/admin/blogs";
+import AddBlog from "../Forms/AddBlog";
 
 const BlogTable = () => {
   const [limit, setLimit] = useState(15);
@@ -41,7 +41,7 @@ const BlogTable = () => {
       <SheetContainer
         triggerBtn={<AddButton text="Add Blog" />}
         title="Add Blog"
-        children={<AddUniversity />}
+        children={<AddBlog />}
       />
 
       <Table className="max-sm:text-xs">
@@ -63,7 +63,7 @@ const BlogTable = () => {
           ) : isLoading || isFetching ? (
             <TableMessage message="Fetching blogs List..." colSpan={4} />
           ) : blogs.length === 0 ? (
-            <TableMessage message="No Customer found" colSpan={4} />
+            <TableMessage message="No Blog found" colSpan={4} />
           ) : (
             blogs.map((testimonial) => {
               return (
@@ -72,10 +72,10 @@ const BlogTable = () => {
                   <TableCell>{testimonial.description}</TableCell>
                   <TableCell>{testimonial.author}</TableCell>
                   <TableCell>
-                    <SheetContainer
+                    {/* <SheetContainer
                       triggerBtn={<EditBtn />}
                       title={"Edit testimonialersity"}
-                    />
+                    /> */}
 
                     <DeleteBtn onClick={() => remove(testimonial._id)} />
                   </TableCell>

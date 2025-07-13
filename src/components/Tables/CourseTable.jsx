@@ -17,6 +17,7 @@ import AddButton from "./elememts/AddButton";
 import AddUniversity from "../Forms/AddUniversity";
 import { fetchCourses } from "@/services/admin/courses";
 import { useCourseActions } from "@/hooks/useCourseActions";
+import AddCourse from "../Forms/AddCourse";
 
 const CourseTable = () => {
   const [limit, setLimit] = useState(15);
@@ -41,7 +42,7 @@ const CourseTable = () => {
       <SheetContainer
         triggerBtn={<AddButton text="Add Course" />}
         title="Add Course"
-        children={<AddUniversity />}
+        children={<AddCourse />}
       />
 
       <Table className="max-sm:text-xs">
@@ -78,10 +79,10 @@ const CourseTable = () => {
                   <TableCell>{univ.fees}</TableCell>
                   <TableCell>{univ.duration}</TableCell>
                   <TableCell>
-                    <SheetContainer
+                    {/* <SheetContainer
                       triggerBtn={<EditBtn />}
                       title={"Edit Course"}
-                    />
+                    /> */}
 
                     <DeleteBtn onClick={() => remove(univ._id)} />
                   </TableCell>
