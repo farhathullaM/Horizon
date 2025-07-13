@@ -1,19 +1,16 @@
-import {
-  addUniversity,
-  deleteUniversity,
-  editUniversity,
-} from "@/services/admin/university";
+
+import { addBlog, deleteBlog, editBlog } from "@/services/admin/blogs";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { toast } from "react-toastify";
 
-export const useUniversityActions = () => {
+export const useBlogActions = () => {
   const queryClient = useQueryClient();
 
   const createMutation = useMutation({
-    mutationFn: addUniversity,
+    mutationFn:  addBlog,
     onSuccess: () => {
-      queryClient.invalidateQueries(["universities"]);
-      toast.success("University added successfully!");
+      queryClient.invalidateQueries(["blogs"]);
+      toast.success("Blog added successfully!");
     },
 
     onError: (error) => {
@@ -23,10 +20,10 @@ export const useUniversityActions = () => {
   });
 
   const deleteMutation = useMutation({
-    mutationFn: deleteUniversity,
+    mutationFn: deleteBlog,
     onSuccess: () => {
-      queryClient.invalidateQueries(["universities"]);
-      toast.success("University deleted successfully!");
+      queryClient.invalidateQueries(["blogs"]);
+      toast.success("Blog deleted successfully!");
     },
 
     onError: (error) => {
@@ -35,10 +32,10 @@ export const useUniversityActions = () => {
   });
 
   const updateMutation = useMutation({
-    mutationFn: editUniversity,
+    mutationFn: editBlog,
     onSuccess: () => {
-      queryClient.invalidateQueries(["universities"]);
-      toast.success("University updated successfully!");
+      queryClient.invalidateQueries(["blogs"]);
+      toast.success("Blog updated successfully!");
     },
 
     onError: (error) => {

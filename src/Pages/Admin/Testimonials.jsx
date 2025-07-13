@@ -1,8 +1,12 @@
-import React from 'react'
+import TestimonialTable from "@/components/Tables/TestimonialTable"
+
 
 const Testimonials = () => {
   return (
-    <div>Testimonials</div>
+    <div>
+      <h1 className="text-3xl font-bold text-[#1E4765] p-4">Testimonials</h1>
+      <TestimonialTable />
+    </div>
   )
 }
 

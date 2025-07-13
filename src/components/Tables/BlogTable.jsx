@@ -10,23 +10,23 @@ import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import TableMessage from "./elememts/TableMessage";
 import TableNav from "./elememts/TableNav";
-import { fetchUniversities } from "@/services/admin/university";
 import SheetContainer from "../ui/SheetContainer";
 import { EditBtn } from "../ui/EditBtn";
 import { DeleteBtn } from "../ui/DeleteBtn";
-import { useUniversityActions } from "@/hooks/useUniversityActions";
 import AddButton from "./elememts/AddButton";
 import AddUniversity from "../Forms/AddUniversity";
+import { useBlogActions } from "@/hooks/useBlogActions";
+import { fetchBlogs } from "@/services/admin/blogs";
 
-const UniversityTable = () => {
+const BlogTable = () => {
   const [limit, setLimit] = useState(15);
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
-  const { deleteError, deleting, remove } = useUniversityActions();
+  const { deleteError, deleting, remove } = useBlogActions();
 
   const { data, isLoading, isFetching, isError, error } = useQuery({
-    queryKey: ["universities", limit, page, search],
-    queryFn: () => fetchUniversities(limit, page, search),
+    queryKey: ["blogs", limit, page, search],
+    queryFn: () => fetchBlogs(limit, page, search),
     staleTime: 5 * 1000 * 60,
     keepPreviousData: true,
   });
@@ -34,22 +34,22 @@ const UniversityTable = () => {
   console.log(data);
   const totalItems = data?.total || 0;
   const totalPages = Math.ceil(totalItems / limit);
-  const universities = data?.universities || [];
+  const blogs = data?.blogs || [];
 
   return (
     <>
       <SheetContainer
-        triggerBtn={<AddButton text="Add University" />}
-        title="Add University"
+        triggerBtn={<AddButton text="Add Blog" />}
+        title="Add Blog"
         children={<AddUniversity />}
       />
 
       <Table className="max-sm:text-xs">
         <TableHeader>
           <TableRow className="sticky top-0 bg-gray-200">
-            <TableHead>University Name</TableHead>
+            <TableHead>Title</TableHead>
             <TableHead>Description</TableHead>
-            <TableHead>Type</TableHead>
+            <TableHead>Author</TableHead>
             <TableHead>Actions</TableHead>
           </TableRow>
         </TableHeader>
@@ -61,23 +61,23 @@ const UniversityTable = () => {
               className={"text-red-500"}
             />
           ) : isLoading || isFetching ? (
-            <TableMessage message="Fetching universities List..." colSpan={4} />
-          ) : universities.length === 0 ? (
+            <TableMessage message="Fetching blogs List..." colSpan={4} />
+          ) : blogs.length === 0 ? (
             <TableMessage message="No Customer found" colSpan={4} />
           ) : (
-            universities.map((univ) => {
+            blogs.map((testimonial) => {
               return (
-                <TableRow key={univ._id}>
-                  <TableCell>{univ.name}</TableCell>
-                  <TableCell>{univ.description}</TableCell>
-                  <TableCell>{univ.type}</TableCell>
+                <TableRow key={testimonial._id}>
+                  <TableCell>{testimonial.title}</TableCell>
+                  <TableCell>{testimonial.description}</TableCell>
+                  <TableCell>{testimonial.author}</TableCell>
                   <TableCell>
                     <SheetContainer
                       triggerBtn={<EditBtn />}
-                      title={"Edit University"}
+                      title={"Edit testimonialersity"}
                     />
 
-                    <DeleteBtn onClick={() => remove(univ._id)} />
+                    <DeleteBtn onClick={() => remove(testimonial._id)} />
                   </TableCell>
                 </TableRow>
               );
@@ -97,4 +97,4 @@ const UniversityTable = () => {
   );
 };
 
-export default UniversityTable;
+export default BlogTable;

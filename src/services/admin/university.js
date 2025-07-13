@@ -13,8 +13,14 @@ const fetchUniversities = async (limit, page, search) => {
   return response.data;
 };
 
-const addUniversity = async (university) => {
-  const response = await apiClient.post("/university", university);
+const addUniversity = async (formData) => {
+  console.log(formData);
+  const response = await apiClient.post("/university", formData, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
+  console.log(response.data);
   return response.data;
 };
 
@@ -23,8 +29,12 @@ const deleteUniversity = async (id) => {
   return response.data;
 };
 
-const editUniversity = async (id, university) => {
-  const response = await apiClient.put(`/university/${id}`, university);
+const editUniversity = async (id, formData) => {
+  const response = await apiClient.put(`/university/${id}`, formData, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
   return response.data;
 };
 
@@ -33,4 +43,4 @@ const getUniversity = async (id) => {
   return response.data;
 };
 
-export { fetchUniversities, addUniversity, deleteUniversity, editUniversity };
+export { fetchUniversities, addUniversity, deleteUniversity, editUniversity, getUniversity };

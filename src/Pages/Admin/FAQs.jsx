@@ -1,8 +1,11 @@
-import React from 'react'
+import FaqTable from '@/components/Tables/FaqTable'
 
 const FAQs = () => {
   return (
-    <div>FAQs</div>
+    <div>
+      <h1 className="text-3xl font-bold text-[#1E4765] p-4">FAQs</h1>
+      <FaqTable />
+    </div>
   )
 }
 

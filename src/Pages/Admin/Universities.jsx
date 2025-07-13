@@ -4,7 +4,7 @@ import React from "react";
 const Universities = () => {
   return (
     <div>
-      Universities
+      <h1 className="text-3xl font-bold text-[#1E4765] p-4">Universities</h1>
       <UniversityTable />
     </div>
   );

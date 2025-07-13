@@ -18,6 +18,8 @@ import Testimonials from "./Pages/Admin/Testimonials";
 import Blogs from "./Pages/Admin/Blogs";
 import Contacts from "./Pages/Admin/Contacts";
 import Applications from "./Pages/Admin/Applications";
+import Login from "./Pages/Login";
+import Register from "./Pages/Register";
 
 function App() {
   return (
@@ -25,6 +27,9 @@ function App() {
       <ScrollToTop />
 
       <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+
         <Route path="/" element={<PublicLayout />}>
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
