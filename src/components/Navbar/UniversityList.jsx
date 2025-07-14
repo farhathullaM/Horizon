@@ -18,6 +18,7 @@ const UniversityList = () => {
     <div className="flex flex-col gap-2">
       {data.map((univ) => (
         <Link
+          key={univ._id}
           to={`/university/${univ._id}`}
           className=" hover:bg-[#1E4765] hover:text-[#fff] cursor-pointer font-semibold px-2 py-1 rounded-sm transform transition duration-75"
         >

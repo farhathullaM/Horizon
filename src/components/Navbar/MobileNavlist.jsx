@@ -60,6 +60,9 @@ const MobileNavlist = () => {
         </div>
       </div>
       <ItemDisplay label={"Contact Us"} pathname="/contact" />
+      <ItemDisplay label={"FAQ"} pathname="/faq" />
+      <ItemDisplay label={"Blogs"} pathname="/blogs" />
+      <ItemDisplay label={"Get Suggestion"} pathname="/apply" />
     </div>
   );
 };

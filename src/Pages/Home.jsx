@@ -8,6 +8,7 @@ import { HeroSection } from "../components/Hero/HeroSection";
 import { OurUniversity } from "../components/University/OurUniversity";
 import Explore from "@/components/Advertisement/Explore";
 import Doubt from "@/components/Contact/Doubt";
+import ApplicationForm from "@/components/Contact/ApplicationForm";
 
 export const Home = () => {
   return (
@@ -21,6 +22,7 @@ export const Home = () => {
       <OurUniversity />
       <FAQ />
       <Doubt heading={"Still have Doubt?"} />
+      <ApplicationForm />
       <Contact />
     </div>
   );

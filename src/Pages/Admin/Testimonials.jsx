@@ -1,5 +1,4 @@
-import TestimonialTable from "@/components/Tables/TestimonialTable"
-
+import TestimonialTable from "@/components/Tables/TestimonialTable";
 
 const Testimonials = () => {
   return (
@@ -7,7 +6,7 @@ const Testimonials = () => {
       <h1 className="text-3xl font-bold text-[#1E4765] p-4">Testimonials</h1>
       <TestimonialTable />
     </div>
-  )
-}
+  );
+};
 
-export default Testimonials
+export default Testimonials;

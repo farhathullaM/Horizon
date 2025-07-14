@@ -13,17 +13,18 @@ import TableNav from "./elememts/TableNav";
 import { DeleteBtn } from "../ui/DeleteBtn";
 import { useContactActions } from "@/hooks/useContactActions";
 import { fetchContacts } from "@/services/admin/contacts";
+import { useSuggestionActions } from "@/hooks/useSuggestionActions";
+import { fetchSuggestions } from "@/services/admin/suggestion";
 
-
-const ContactTable = () => {
+const SuggestionTable = () => {
   const [limit, setLimit] = useState(15);
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
-  const { deleteError, deleting, remove } = useContactActions();
+  const { deleteError, deleting, remove } = useSuggestionActions();
 
   const { data, isLoading, isFetching, isError, error } = useQuery({
-    queryKey: ["contacts", limit, page, search],
-    queryFn: () => fetchContacts(limit, page, search),
+    queryKey: ["suggestions", limit, page, search],
+    queryFn: () => fetchSuggestions(limit, page, search),
     staleTime: 5 * 1000 * 60,
     keepPreviousData: true,
   });
@@ -31,7 +32,7 @@ const ContactTable = () => {
   console.log(data);
   const totalItems = data?.total || 0;
   const totalPages = Math.ceil(totalItems / limit);
-  const contacts = data?.contacts || [];
+  const suggestions = data?.suggestions || [];
 
   return (
     <>
@@ -41,7 +42,12 @@ const ContactTable = () => {
             <TableHead>Name</TableHead>
             <TableHead>phone</TableHead>
             <TableHead>email</TableHead>
-            <TableHead>message</TableHead>
+            <TableHead>Qualificaton</TableHead>
+            <TableHead>Prefered Country</TableHead>
+            <TableHead>Intrested Area</TableHead>
+            <TableHead>Prefered Course</TableHead>
+            <TableHead>Prefered Mode</TableHead>
+            <TableHead>Budget</TableHead>
             <TableHead>Actions</TableHead>
           </TableRow>
         </TableHeader>
@@ -53,17 +59,22 @@ const ContactTable = () => {
               className={"text-red-500"}
             />
           ) : isLoading || isFetching ? (
-            <TableMessage message="Fetching contacts List..." colSpan={5} />
-          ) : contacts.length === 0 ? (
-            <TableMessage message="No contacts found" colSpan={5} />
+            <TableMessage message="Fetching Suggestion List..." colSpan={5} />
+          ) : suggestions.length === 0 ? (
+            <TableMessage message="No suggestions found" colSpan={5} />
           ) : (
-            contacts.map((univ) => {
+            suggestions.map((univ) => {
               return (
                 <TableRow key={univ._id}>
                   <TableCell>{univ.name}</TableCell>
                   <TableCell>{univ.phone}</TableCell>
                   <TableCell>{univ.email}</TableCell>
-                  <TableCell>{univ.message}</TableCell>
+                  <TableCell>{univ.qualification}</TableCell>
+                  <TableCell>{univ.countryPreference}</TableCell>
+                  <TableCell>{univ.interestedArea}</TableCell>
+                  <TableCell>{univ.preferredCourse}</TableCell>
+                  <TableCell>{univ.preferredMode}</TableCell>
+                  <TableCell>{univ.budget}</TableCell>
                   <TableCell>
                     <DeleteBtn onClick={() => remove(univ._id)} />
                   </TableCell>
@@ -85,4 +96,4 @@ const ContactTable = () => {
   );
 };
 
-export default ContactTable;
+export default SuggestionTable;

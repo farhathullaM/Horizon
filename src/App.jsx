@@ -20,6 +20,10 @@ import Contacts from "./Pages/Admin/Contacts";
 import Applications from "./Pages/Admin/Applications";
 import Login from "./Pages/Login";
 import Register from "./Pages/Register";
+import Faq from "./Pages/Faq";
+import Blog from "./Pages/Blog";
+import Apply from "./Pages/Apply";
+import Suggestions from "./Pages/Admin/Suggestions";
 
 function App() {
   return (
@@ -38,6 +42,9 @@ function App() {
           <Route path="openschool" element={<OpenSchool />} />
           <Route path="skillprogram" element={<SkillProgram />} />
           <Route path="university/:id" element={<University />} />
+          <Route path="faq" element={<Faq />} />
+          <Route path="blogs" element={<Blog />} />
+          <Route path="apply" element={<Apply />} />
         </Route>
 
         <Route path="/admin" element={<AdminLayout />}>
@@ -48,6 +55,7 @@ function App() {
           <Route path="blogs" element={<Blogs />} />
           <Route path="contacts" element={<Contacts />} />
           <Route path="applications" element={<Applications />} />
+          <Route path="suggestions" element={<Suggestions />} />
         </Route>
 
         <Route path="*" element={<ErrorPage />} />

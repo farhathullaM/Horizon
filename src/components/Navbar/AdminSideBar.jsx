@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import {
   Sidebar,
   SidebarContent,
@@ -9,13 +10,17 @@ import {
 } from "../ui/sidebar";
 import { mainMenuItems } from "./adminNavItems";
 import MenuItems from "./MenuItems";
+import logo from "@/assets/logo/horizon_blue.png";
+import { LogOut } from "lucide-react";
 
 const AdminSideBar = () => {
   return (
     <Sidebar>
-      {/* <SidebarHeader className="bg-white">
-        <Header />
-      </SidebarHeader> */}
+      <SidebarHeader className="bg-white">
+        <Link to="/">
+          <img src={logo} alt="horizon logo" className="w-40 py-5" />
+        </Link>
+      </SidebarHeader>
 
       <SidebarContent className="flex gap-0  bg-white">
         <SidebarGroup>
@@ -25,10 +30,10 @@ const AdminSideBar = () => {
         </SidebarGroup>
       </SidebarContent>
 
-      {/* Footer - Uncomment if needed */}
-      {/* <SidebarFooter>
-        <MenuItems items={footerMenuItems} />
-      </SidebarFooter> */}
+
+      <SidebarFooter>
+        <LogOut />
+      </SidebarFooter>
     </Sidebar>
   );
 };

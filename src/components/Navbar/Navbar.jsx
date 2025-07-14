@@ -35,9 +35,26 @@ export const Navbar = () => {
           <Hover
             label={"Skill Programs"}
             pathname={"/skillprogram"}
-            content={<ProgramList />}
+            content={
+              <ProgramList
+                text={"Microsoft Office skill Certification"}
+                path="/skillprogram"
+              />
+            }
           />
-          <ItemDisplay label={"Contact Us"} pathname="/contact" />
+
+          <Hover
+            label={"More"}
+            pathname={"/apply /contact /blogs /faq"}
+            content={
+              <div className="flex flex-col gap-2">
+                <ProgramList text={"Contact Us"} path="/contact" />
+                <ProgramList text={"Apply"} path="/apply" />
+                <ProgramList text={"Blogs"} path="/blogs" />
+                <ProgramList text={"FAQ"} path="/faq" />
+              </div>
+            }
+          />
         </div>
 
         <SheetDisplay

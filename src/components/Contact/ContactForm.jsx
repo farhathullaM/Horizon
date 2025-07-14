@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
-import emailjs from "emailjs-com";
+// import emailjs from "emailjs-com";
 import { toast } from "react-toastify";
+import { contact } from "@/services/public/publicRoutes";
 
 export const ContactForm = () => {
   const formRef = useRef();
@@ -49,43 +50,50 @@ export const ContactForm = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     setLoading(true);
     e.preventDefault();
     const validationErrors = validate();
-
-    // const formDataObj = new FormData(formRef.current);
-    // for (const [key, value] of formDataObj.entries()) {
-    //   console.log(`${key}: ${value}`);
-    // }
 
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
       return;
     }
 
-    emailjs
-      .sendForm(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        formRef.current,
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-          toast.success("Message sent successfully!");
-          formRef.current.reset();
-          setSubmitMsg("Message sent successfully!");
-          setLoading(false);
-          setFormData({ name: "", email: "", message: "", phone: "" });
-        },
-        (error) => {
-          console.error(error.text);
-          setLoading(false);
-          toast.error("Failed to send message. Please try again.");
-        }
-      );
+    try {
+      const response = await contact(formData);
+      if (response?.success) {
+        toast.success(response.message || "Message sent");
+      } else {
+        toast.error(response.message || "Something went wrong.");
+      }
+    } catch (error) {
+      toast.error("Failed to send suggestion. Please try again.");
+      console.error("Error in submitting suggestion:", error);
+    }
+
+    // emailjs
+    //   .sendForm(
+    //     import.meta.env.VITE_EMAILJS_SERVICE_ID,
+    //     import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+    //     formRef.current,
+    //     import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+    //   )
+    //   .then(
+    //     (result) => {
+    //       console.log(result.text);
+    //       toast.success("Message sent successfully!");
+    //       formRef.current.reset();
+    //       setSubmitMsg("Message sent successfully!");
+    //       setLoading(false);
+    //       setFormData({ name: "", email: "", message: "", phone: "" });
+    //     },
+    //     (error) => {
+    //       console.error(error.text);
+    //       setLoading(false);
+    //       toast.error("Failed to send message. Please try again.");
+    //     }
+    //   );
   };
 
   return (
