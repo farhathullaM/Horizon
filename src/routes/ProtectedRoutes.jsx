@@ -1,13 +1,13 @@
 import { Navigate } from "react-router-dom";
-// import { useAuth } from "@/context/AuthContext";
+import { useAuth } from "@/context/AuthContext";
+import Login from "@/Pages/Login";
+import Unauthorized from "@/Pages/Error/Unauthorized";
 
 export const ProtectedRoute = ({ children, requiredRoles = [] }) => {
-  //   const { user, loading } = useAuth();
-  const loading = false;
-  const user = {};
+  const { user, loading } = useAuth();
 
   if (loading) {
-    return <LoadingPage />;
+    return <Login />;
   }
 
   if (!user) {
@@ -15,7 +15,8 @@ export const ProtectedRoute = ({ children, requiredRoles = [] }) => {
   }
 
   if (requiredRoles.length > 0 && !requiredRoles.includes(user?.role)) {
-    if (user?.role === "admin") return <Navigate to="/admin" replace />;
+    if (user?.role === "admin" || user?.role === "super_admin")
+      return <Navigate to="/admin" replace />;
     return <Unauthorized />;
   }
 

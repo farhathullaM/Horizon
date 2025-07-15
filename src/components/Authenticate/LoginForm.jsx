@@ -1,14 +1,14 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-// import { useAuth } from "@/context/AuthContext";
+import { useAuth } from "@/context/AuthContext";
 import { InputItem } from "./InputItem";
 import { SubmitBtn } from "./SubmitBtn";
 
 export const LoginForm = () => {
   const navigate = useNavigate();
-//   const { login, loading } = useAuth();
+  const { login, loading } = useAuth();
 
-  const [loginData, setLoginData] = useState({
+  const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
@@ -17,21 +17,21 @@ export const LoginForm = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setLoginData((prev) => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const validate = () => {
     const newErrors = {};
 
-    if (!loginData.email.trim()) {
+    if (!formData.email.trim()) {
       newErrors.email = "Email is required";
-    } else if (!/^\S+@\S+\.\S+$/.test(loginData.email)) {
+    } else if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
       newErrors.email = "Invalid email address";
     }
 
-    if (!loginData.password.trim()) {
+    if (!formData.password.trim()) {
       newErrors.password = "Password is required";
-    } else if (loginData.password.length < 6) {
+    } else if (formData.password.length < 6) {
       newErrors.password = "Password must be at least 6 characters";
     }
 
@@ -43,7 +43,7 @@ export const LoginForm = () => {
     e.preventDefault();
     if (!validate()) return;
 
-    // login(loginData);
+    login(formData);
   };
 
   return (
@@ -56,7 +56,7 @@ export const LoginForm = () => {
       <InputItem
         type="email"
         name="email"
-        value={loginData.email}
+        value={formData.email}
         onChange={handleChange}
         placeholder="Email"
         error={errors.email}
@@ -65,7 +65,7 @@ export const LoginForm = () => {
       <InputItem
         type="password"
         name="password"
-        value={loginData.password}
+        value={formData.password}
         onChange={handleChange}
         placeholder="Password"
         error={errors.password}
@@ -75,7 +75,7 @@ export const LoginForm = () => {
         label="Login"
         type="submit"
         onClick={handleLogin}
-        // loading={loading}
+        loading={loading}
       />
 
       <div className="text-center flex gap-1">

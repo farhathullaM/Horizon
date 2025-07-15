@@ -2,15 +2,14 @@ import React, { useState } from "react";
 import { InputItem } from "./InputItem";
 import { SubmitBtn } from "./SubmitBtn";
 import { Link, useNavigate } from "react-router-dom";
-// import { useAuth } from "@/context/AuthContext";
-// import { sendRegisterOTP } from "@/lib/api/user/authenticate";
 import { toast } from "react-toastify";
+import { useAuth } from "@/context/AuthContext";
 
 const RegisterForm = () => {
   const navigate = useNavigate();
-  //   const { register, loading } = useAuth();
+  const { register, loading } = useAuth();
   const [formData, setFormData] = useState({
-    userName: "",
+    name: "",
     email: "",
     password: "",
   });
@@ -46,11 +45,11 @@ const RegisterForm = () => {
   const validateForm = () => {
     const newErrors = {};
 
-    // Username validation
-    if (!formData.userName.trim()) {
-      newErrors.userName = "Username is required";
-    } else if (formData.userName.trim().length < 2) {
-      newErrors.userName = "Username must be at least 2 characters";
+    // name validation
+    if (!formData.name.trim()) {
+      newErrors.name = "Name is required";
+    } else if (formData.name.trim().length < 2) {
+      newErrors.name = "Name must be at least 2 characters";
     }
 
     // Phone validation
@@ -99,16 +98,7 @@ const RegisterForm = () => {
     }
 
     try {
-      // Prepare clean data for registration
-      const registrationData = {
-        userName: formData.userName.trim(),
-        phone: formData.phone.trim(),
-        email: formData.email.trim(),
-        otp: formData.otp.trim(),
-        password: formData.password,
-      };
-
-      const response = await register(registrationData);
+      const response = await register(formData);
 
       if (response.success) {
         toast.success(response.message || "Registration successful!");
@@ -130,11 +120,11 @@ const RegisterForm = () => {
       <h1 className="text-2xl py-2 font-semibold text-center">Register</h1>
 
       <InputItem
-        name="userName"
-        value={formData.userName}
+        name="name"
+        value={formData.name}
         onChange={handleChange}
-        placeholder="Username"
-        error={errors.userName}
+        placeholder="Name"
+        error={errors.name}
       />
 
       {/* <InputItem
@@ -173,7 +163,7 @@ const RegisterForm = () => {
         error={errors.confirmPassword}
       />
 
-      <SubmitBtn label="Register" onClick={handleRegister} />
+      <SubmitBtn label="Register" onClick={handleRegister} loading={loading} />
 
       <div className="text-center flex gap-1 justify-center">
         <p className="text-[#797979]">Already have an account?</p>

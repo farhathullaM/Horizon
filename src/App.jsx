@@ -24,6 +24,7 @@ import Faq from "./Pages/Faq";
 import Blog from "./Pages/Blog";
 import Apply from "./Pages/Apply";
 import Suggestions from "./Pages/Admin/Suggestions";
+import Users from "./Pages/Admin/Users";
 
 function App() {
   return (
@@ -56,6 +57,7 @@ function App() {
           <Route path="contacts" element={<Contacts />} />
           <Route path="applications" element={<Applications />} />
           <Route path="suggestions" element={<Suggestions />} />
+          <Route path="users" element={<Users />} />
         </Route>
 
         <Route path="*" element={<ErrorPage />} />

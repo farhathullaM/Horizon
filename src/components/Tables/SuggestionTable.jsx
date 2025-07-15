@@ -11,8 +11,6 @@ import { useQuery } from "@tanstack/react-query";
 import TableMessage from "./elememts/TableMessage";
 import TableNav from "./elememts/TableNav";
 import { DeleteBtn } from "../ui/DeleteBtn";
-import { useContactActions } from "@/hooks/useContactActions";
-import { fetchContacts } from "@/services/admin/contacts";
 import { useSuggestionActions } from "@/hooks/useSuggestionActions";
 import { fetchSuggestions } from "@/services/admin/suggestion";
 

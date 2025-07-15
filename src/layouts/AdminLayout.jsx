@@ -7,15 +7,15 @@ import { Outlet } from "react-router-dom";
 
 const AdminLayout = () => {
   return (
-    // <ProtectedRoute requiredRoles={["admin", "super_admin"]}>
-    <SidebarProvider>
-      <AdminSideBar />
-      <main style={{ flexGrow: 1, backgroundColor: "#f9f9f9" }}>
-        <AdminHeader />
-        <Outlet />
-      </main>
-    </SidebarProvider>
-    // </ProtectedRoute>
+    <ProtectedRoute requiredRoles={["admin", "super_admin"]}>
+      <SidebarProvider>
+        <AdminSideBar />
+        <main style={{ flexGrow: 1, backgroundColor: "#f9f9f9" }}>
+          <AdminHeader />
+          <Outlet />
+        </main>
+      </SidebarProvider>
+    </ProtectedRoute>
   );
 };
 

@@ -1,15 +1,24 @@
 import horizon_logo from "@/assets/logo/horizon_blue.png";
-import { Link, useLocation } from "react-router-dom";
-import { Menu, PhoneCall } from "lucide-react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { LogOut, Menu, PhoneCall, User } from "lucide-react";
 import Hover from "../ui/Hover";
 import UniversityList from "./UniversityList";
 import ProgramList from "./ProgramList";
 import SheetDisplay from "../ui/SheetDisplay";
 import ItemDisplay from "./ItemDisplay";
 import MobileNavlist from "./MobileNavlist";
+import { useAuth } from "@/context/AuthContext";
 
 export const Navbar = () => {
+  const { user, logout } = useAuth();
+  const navigate = useNavigate();
   const location = useLocation();
+
+  const handleLogout = async () => {
+    const res = await logout()
+      .then(() => navigate("/login"))
+      .catch((err) => toast.error(err));
+  };
 
   return (
     <header className="flex justify-between items-center h-18 w-full gap-4  max-sm:justify-between px-15  sticky top-0 bg-[#d6d9df] z-40 max-lg:px-5 ">
@@ -71,6 +80,13 @@ export const Navbar = () => {
           <PhoneCall size={16} color="white" />
           <p> 8086027773</p>
         </Link>
+
+        {user &&
+          (user?.role === "admin" || user?.role === "super_admin" ? (
+            <User className="cursor-pointer" onClick={() => navigate("/admin")} />
+          ) : (
+            <LogOut className="cursor-pointer" onClick={handleLogout} />
+          ))}
       </div>
     </header>
   );

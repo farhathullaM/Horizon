@@ -7,6 +7,7 @@ import { ToastContainer } from "react-toastify";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Provider } from "@radix-ui/react-tooltip";
 import { store } from "./redux/store";
+import { AuthProvider } from "./context/AuthContext";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -19,12 +20,14 @@ const queryClient = new QueryClient({
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <QueryClientProvider client={queryClient}>
-      <Provider store={store}>
+      {/* <Provider store={store}> */}
+      <AuthProvider>
         <BrowserRouter>
           <ToastContainer autoClose={2000} position="bottom-right" />
           <App />
         </BrowserRouter>
-      </Provider>
+      </AuthProvider>
+      {/* </Provider> */}
     </QueryClientProvider>
   </StrictMode>
 );

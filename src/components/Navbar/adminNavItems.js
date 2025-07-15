@@ -41,4 +41,9 @@ export const mainMenuItems = [
     url: "/admin/suggestions",
     icon: MessageCircle,
   },
+  {
+    title: "Users",
+    url: "/admin/users",
+    icon: User,
+  }
 ];
