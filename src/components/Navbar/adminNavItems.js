@@ -1,4 +1,10 @@
-import { Box, LayoutDashboard, MessageCircle, ShoppingBag, User } from "lucide-react";
+import {
+  Box,
+  LayoutDashboard,
+  MessageCircle,
+  ShoppingBag,
+  User,
+} from "lucide-react";
 
 export const mainMenuItems = [
   {
@@ -41,9 +47,12 @@ export const mainMenuItems = [
     url: "/admin/suggestions",
     icon: MessageCircle,
   },
+];
+
+export const superAdminMenuItems = [
   {
     title: "Users",
     url: "/admin/users",
     icon: User,
-  }
+  },
 ];

@@ -8,12 +8,14 @@ import {
   SidebarHeader,
   SidebarMenu,
 } from "../ui/sidebar";
-import { mainMenuItems } from "./adminNavItems";
+import { mainMenuItems, superAdminMenuItems } from "./adminNavItems";
 import MenuItems from "./MenuItems";
 import logo from "@/assets/logo/horizon_blue.png";
-import { LogOut } from "lucide-react";
+// import { LogOut } from "lucide-react";
+import { useAuth } from "@/context/AuthContext";
 
 const AdminSideBar = () => {
+  const { user } = useAuth();
   return (
     <Sidebar>
       <SidebarHeader className="bg-white">
@@ -26,14 +28,16 @@ const AdminSideBar = () => {
         <SidebarGroup>
           <SidebarGroupContent>
             <MenuItems items={mainMenuItems} />
+            {user?.role === "super_admin" && (
+              <MenuItems items={superAdminMenuItems} />
+            )}
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
 
-
-      <SidebarFooter>
+      {/* <SidebarFooter>
         <LogOut />
-      </SidebarFooter>
+      </SidebarFooter> */}
     </Sidebar>
   );
 };

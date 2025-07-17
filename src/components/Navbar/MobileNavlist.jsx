@@ -1,12 +1,23 @@
 import React, { useState } from "react";
 import ItemDisplay from "./ItemDisplay";
 import { Link, useLocation } from "react-router-dom";
-import { universityData } from "../University/universities";
+import { getUniversityList } from "@/services/public/publicRoutes";
+import { useQuery } from "@tanstack/react-query";
 
 const MobileNavlist = () => {
   const location = useLocation();
   const [showUniv, setShowUniv] = useState(false);
   const [showSkill, setShowSkill] = useState(false);
+
+  const {
+    data: universityData,
+    isLoading,
+    isError,
+  } = useQuery({
+    queryKey: ["universityList"],
+    queryFn: () => getUniversityList(),
+    staleTime: 5 * 60 * 1000,
+  });
 
   return (
     <div className="flex gap-2 flex-col pl-5">
@@ -26,14 +37,21 @@ const MobileNavlist = () => {
           Universities
         </span>
         <div className={`flex flex-col pl-5 ${showUniv ? "block" : "hidden"}`}>
-          {universityData.map((univ) => (
-            <Link
-              to={`/university/${univ.id}`}
-              className="hover:bg-[#1E4765] hover:text-[#fff] cursor-pointer font-semibold px-2 py-1 text-nowrap text-sm rounded-sm transform transition duration-75"
-            >
-              {univ.name}
-            </Link>
-          ))}
+          {isError ? (
+            <div>Error</div>
+          ) : isLoading ? (
+            <div>Loading...</div>
+          ) : (
+            universityData.map((univ) => (
+              <Link
+                key={univ._id}
+                to={`/university/${univ._id}`}
+                className="hover:bg-[#1E4765] hover:text-[#fff] cursor-pointer font-semibold px-2 py-1 text-nowrap text-sm rounded-sm transform transition duration-75"
+              >
+                {univ.name}
+              </Link>
+            ))
+          )}
         </div>
       </div>
       <ItemDisplay label={"Open School"} pathname="/openschool" />

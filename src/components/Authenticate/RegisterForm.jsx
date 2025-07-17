@@ -16,8 +16,6 @@ const RegisterForm = () => {
 
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState({});
-  const [isOtpSent, setIsOtpSent] = useState(false);
-  const [isOtpLoading, setIsOtpLoading] = useState(false);
 
   // Handle input changes
   const handleChange = (e) => {
