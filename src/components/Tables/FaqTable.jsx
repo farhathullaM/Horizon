@@ -32,7 +32,6 @@ const FaqTable = () => {
     keepPreviousData: true,
   });
 
-  console.log(data);
   const totalItems = data?.total || 0;
   const totalPages = Math.ceil(totalItems / limit);
   const faqs = data?.faqs || [];

@@ -13,7 +13,7 @@ const University = () => {
     queryFn: () => getUniversityDetails(id),
   });
 
-  // console.log(data);
+  //
 
   const university = data?.university;
   const courses = data?.courses;
@@ -41,7 +41,9 @@ const University = () => {
         </div>
 
         <img
-          src={BASE_FILE_URL + "university/" + encodeURIComponent(university.image)}
+          src={
+            BASE_FILE_URL + "university/" + encodeURIComponent(university.image)
+          }
           alt={university.name}
           className="hidden max-md:block mt-10 rounded-4xl"
         />

@@ -13,7 +13,6 @@ const AdminHeader = () => {
       .catch((err) => toast.error(err));
   };
 
-  console.log(user);
   return (
     <div className=" flex w-full p-4  justify-between items-center">
       <div className="flex items-center gap-3">

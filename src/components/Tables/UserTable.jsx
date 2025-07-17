@@ -28,7 +28,6 @@ const UserTable = () => {
     keepPreviousData: true,
   });
 
-  console.log(data);
   const totalItems = data?.total - 1 || 0;
   const totalPages = Math.ceil(totalItems / limit);
   const users = data?.users || [];

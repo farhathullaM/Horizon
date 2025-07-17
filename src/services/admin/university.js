@@ -20,7 +20,6 @@ const addUniversity = async (formData) => {
       "Content-Type": "multipart/form-data",
     },
   });
-  console.log(response.data);
   return response.data;
 };
 
@@ -43,4 +42,10 @@ const getUniversity = async (id) => {
   return response.data;
 };
 
-export { fetchUniversities, addUniversity, deleteUniversity, editUniversity, getUniversity };
+export {
+  fetchUniversities,
+  addUniversity,
+  deleteUniversity,
+  editUniversity,
+  getUniversity,
+};

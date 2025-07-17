@@ -14,7 +14,6 @@ import { DeleteBtn } from "../ui/DeleteBtn";
 import { useContactActions } from "@/hooks/useContactActions";
 import { fetchContacts } from "@/services/admin/contacts";
 
-
 const ContactTable = () => {
   const [limit, setLimit] = useState(15);
   const [search, setSearch] = useState("");
@@ -28,7 +27,6 @@ const ContactTable = () => {
     keepPreviousData: true,
   });
 
-  console.log(data);
   const totalItems = data?.total || 0;
   const totalPages = Math.ceil(totalItems / limit);
   const contacts = data?.contacts || [];
