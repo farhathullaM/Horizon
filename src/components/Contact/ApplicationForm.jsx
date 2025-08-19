@@ -31,6 +31,9 @@ const ApplicationForm = () => {
     if (formData.email && !/^\S+@\S+\.\S+$/.test(formData.email))
       newErrors.email = "Invalid email address";
 
+    if (!formData.preferredMode.trim())
+      newErrors.preferredMode = "Preferred Mode is required";
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -48,6 +51,18 @@ const ApplicationForm = () => {
       const response = await requestSuggestion(formData);
       if (response?.success) {
         toast.success(response.message || "Suggestion sent successfully!");
+        setFormData({
+          name: "",
+          phone: "",
+          email: "",
+          qualification: "",
+          interestedArea: "",
+          preferredCourse: "",
+          budget: "",
+          countryPreference: "",
+          preferredMode: "",
+          languagePreference: "",
+        });
       } else {
         toast.error(response.message || "Something went wrong.");
       }
@@ -110,6 +125,9 @@ const ApplicationForm = () => {
             <option value="Offline">Offline</option>
             <option value="Hybrid">Hybrid</option>
           </select>
+          {errors.preferredMode && (
+            <span className="text-red-500 text-sm">{errors.preferredMode}</span>
+          )}
         </div>
       </div>
 

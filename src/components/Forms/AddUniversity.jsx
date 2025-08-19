@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Input from "./elements/Input";
 import { PreviewImage } from "./elements/PreviewImage";
 import { PreviewIcon } from "./elements/PreviewIcon";
 import { useUniversityActions } from "@/hooks/useUniversityActions";
 import TextArea from "./elements/TextArea";
+import { SheetClose } from "../ui/sheet";
 
 const AddUniversity = () => {
+  const closeRef = useRef(null);
   const { create, creating, created, createError } = useUniversityActions();
   const [formData, setFormData] = useState({
     name: "",
@@ -67,6 +69,11 @@ const AddUniversity = () => {
 
     create(formData);
   };
+
+  useEffect(() => {
+    if (created) closeRef.current?.click();
+  }, [created]);
+
   return (
     <div className="flex flex-col gap-4 px-2">
       <PreviewImage
@@ -113,10 +120,15 @@ const AddUniversity = () => {
         placeholder="Description"
       />
 
+      <SheetClose asChild>
+        <button ref={closeRef} className="hidden" />
+      </SheetClose>
+
       <div>
         <button
           type="submit"
           className="bg-[#3363ff] cursor-pointer text-white px-4 py-2 rounded-md"
+          disabled={creating}
           onClick={handleSubmit}
         >
           {creating ? "Creating..." : "Create"}

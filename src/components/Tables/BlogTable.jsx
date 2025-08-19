@@ -49,6 +49,7 @@ const BlogTable = () => {
             <TableHead>Title</TableHead>
             <TableHead>Description</TableHead>
             <TableHead>Author</TableHead>
+            <TableHead>Image</TableHead>
             <TableHead>Actions</TableHead>
           </TableRow>
         </TableHeader>
@@ -70,6 +71,13 @@ const BlogTable = () => {
                   <TableCell>{testimonial.title}</TableCell>
                   <TableCell>{testimonial.description}</TableCell>
                   <TableCell>{testimonial.author}</TableCell>
+                  <TableCell>
+                    <img
+                      src={testimonial.image}
+                      alt=""
+                      className="w-10 h-10 rounded-md"
+                    />
+                  </TableCell>
                   <TableCell>
                     {/* <SheetContainer
                       triggerBtn={<EditBtn />}

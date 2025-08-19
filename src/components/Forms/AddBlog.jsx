@@ -53,6 +53,10 @@ const AddBlog = () => {
     create(formData);
   };
 
+  useEffect(() => {
+    if (created) closeRef.current?.click();
+  }, [created]);
+
   return (
     <div className="flex flex-col gap-4 px-2 pb-4 overflow-y-scroll">
       <PreviewImage
@@ -94,11 +98,10 @@ const AddBlog = () => {
         >
           {creating ? "Creating..." : "Create"}
         </button>
-        <SheetClose
-          ref={closeRef}
-          className="cursor-pointer px-4 py-2 rounded-md border-2 border-[#232121]"
-        >
-          Cancel
+        <SheetClose asChild>
+          <button ref={closeRef} className="flex items-center gap-2">
+            Cancel
+          </button>
         </SheetClose>
       </div>
     </div>

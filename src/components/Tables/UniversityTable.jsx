@@ -17,6 +17,7 @@ import { DeleteBtn } from "../ui/DeleteBtn";
 import { useUniversityActions } from "@/hooks/useUniversityActions";
 import AddButton from "./elememts/AddButton";
 import AddUniversity from "../Forms/AddUniversity";
+import AlertBox from "../ui/AlertBox";
 
 const UniversityTable = () => {
   const [limit, setLimit] = useState(15);
@@ -49,6 +50,8 @@ const UniversityTable = () => {
             <TableHead>University Name</TableHead>
             <TableHead>Description</TableHead>
             <TableHead>Type</TableHead>
+            <TableHead>Image</TableHead>
+            <TableHead>Icon</TableHead>
             <TableHead>Actions</TableHead>
           </TableRow>
         </TableHeader>
@@ -68,15 +71,37 @@ const UniversityTable = () => {
               return (
                 <TableRow key={univ._id}>
                   <TableCell>{univ.name}</TableCell>
-                  <TableCell>{univ.description}</TableCell>
+                  <TableCell className={"max-w-40 truncate"}>
+                    {univ.description}
+                  </TableCell>
                   <TableCell>{univ.type}</TableCell>
+                  <TableCell>
+                    <img
+                      src={univ.image}
+                      alt=""
+                      className="w-10 h-10 rounded-md"
+                    />
+                  </TableCell>
+                  <TableCell>
+                    <img
+                      src={univ.icon}
+                      alt=""
+                      className="w-10 h-10 rounded-md"
+                    />
+                  </TableCell>
                   <TableCell>
                     {/* <SheetContainer
                       triggerBtn={<EditBtn />}
                       title={"Edit University"}
                     /> */}
 
-                    <DeleteBtn onClick={() => remove(univ._id)} />
+                    <AlertBox
+                      trigger={<DeleteBtn />}
+                      title={"Delete University"}
+                      desc={"Are you sure you want to delete this University?"}
+                      actionBtn={"Delete"}
+                      onClick={() => remove(univ._id)}
+                    />
                   </TableCell>
                 </TableRow>
               );

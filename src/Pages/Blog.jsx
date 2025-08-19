@@ -2,7 +2,6 @@ import React from "react";
 import { useQuery } from "@tanstack/react-query";
 import { getAllBlogs } from "@/services/public/publicRoutes";
 import { Loader } from "lucide-react";
-import { BASE_FILE_URL } from "@/lib/url";
 
 const Blog = () => {
   const {
@@ -38,7 +37,7 @@ const Blog = () => {
             >
               {blog.image ? (
                 <img
-                  src={BASE_FILE_URL + "blog/" + blog.image}
+                  src={blog.image}
                   alt={blog.title}
                   className="w-80 h-80 rounded-md max-sm:w-full "
                 />

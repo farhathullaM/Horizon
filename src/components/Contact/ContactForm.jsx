@@ -64,12 +64,15 @@ export const ContactForm = () => {
       const response = await contact(formData);
       if (response?.success) {
         toast.success(response.message || "Message sent");
+        setFormData({ name: "", email: "", message: "", phone: "" });
       } else {
         toast.error(response.message || "Something went wrong.");
       }
     } catch (error) {
       toast.error("Failed to send suggestion. Please try again.");
       console.error("Error in submitting suggestion:", error);
+    } finally {
+      setLoading(false);
     }
 
     // emailjs

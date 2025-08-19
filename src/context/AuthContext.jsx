@@ -10,13 +10,22 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // ✅ Get user from server via cookie
+  // ✅ Fetch user details using stored token
   const fetchUser = async () => {
+    const token = localStorage.getItem("jwt");
+    if (!token) {
+      setUser(null);
+      setLoading(false);
+      return;
+    }
+
     try {
       const res = await apiClient.get("/user/me");
       setUser(res.data);
     } catch (err) {
+      console.error("Auth check failed:", err);
       setUser(null);
+      localStorage.removeItem("jwt");
     } finally {
       setLoading(false);
     }
@@ -26,19 +35,26 @@ export const AuthProvider = ({ children }) => {
     fetchUser();
   }, []);
 
-  // ✅ Login: backend sets cookie, then refetch user
+  // ✅ Login: store token in localStorage, then fetch user
   const login = async (formData) => {
     setLoading(true);
     try {
       const res = await apiClient.post("/user/login", formData, {
         headers: { "Content-Type": "application/json" },
       });
-      console.log("userlogin");
+
+      // Save JWT to localStorage
+      localStorage.setItem("jwt", res.data.token);
+
+      // Get user details
       await fetchUser();
-      toast.success(res.data.message);
+
+      toast.success("Logged in successfully");
       return { success: true };
     } catch (e) {
-      toast.error(e.response?.data?.message);
+      toast.error(
+        e.response?.data?.message || e.message || "Invalid Credentials"
+      );
       return {
         success: false,
         message: e.response?.data?.message,
@@ -48,17 +64,19 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  // ✅ Register: backend sets cookie, then refetch user
+  // ✅ Register: backend returns token, store it
   const register = async (formData) => {
     setLoading(true);
     try {
-      await apiClient.post("/user/register", formData, {
+      const res = await apiClient.post("/user/register", formData, {
         headers: { "Content-Type": "application/json" },
       });
-      // toast.success("Successfully Registered");
+
+      localStorage.setItem("jwt", res.data.token);
+      await fetchUser();
+
       return { success: true, message: "Successfully Registered" };
     } catch (e) {
-      // toast.error(e.response?.data?.message);
       return {
         success: false,
         message: e.response?.data?.message || e.message,
@@ -68,14 +86,10 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  // ✅ Logout: call backend to clear cookie
   const logout = async () => {
-    try {
-      await apiClient.post("/user/logout");
-      setUser(null);
-    } catch (e) {
-      console.error("Logout failed:", e);
-    }
+    localStorage.removeItem("jwt");
+    setUser(null);
+    toast.info("Logged out successfully");
   };
 
   const value = {

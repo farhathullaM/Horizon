@@ -21,7 +21,7 @@ export const PreviewImage = ({ onChange, imagePreview, onClick }) => {
             type="file"
             id="image"
             name="image"
-            accept="image/*"
+            accept="image/* jpeg/* png/* gif/* svg/* webp/*"
             onChange={onChange}
             className="hidden"
           />

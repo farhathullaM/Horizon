@@ -31,7 +31,7 @@ export const PreviewIcon = ({ iconPreview, onChange, onClick }) => {
             name="icon"
             className="hidden"
             id="icon"
-            accept="image/*"
+            accept="image/* jpeg/* png/* gif/* svg/* webp/*"
             onChange={onChange}
           />
         </>

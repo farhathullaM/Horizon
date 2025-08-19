@@ -49,17 +49,17 @@ export const useUniversityActions = () => {
   return {
     create: createMutation.mutate,
     created: createMutation.isSuccess,
-    creating: createMutation.isLoading,
+    creating: createMutation.isPending,
     createError: createMutation.error,
 
     remove: deleteMutation.mutate,
     deleted: deleteMutation.isSuccess,
-    deleting: deleteMutation.isLoading,
+    deleting: deleteMutation.isPending,
     deleteError: deleteMutation.error,
 
     update: updateMutation.mutate,
     updated: updateMutation.isSuccess,
-    updating: updateMutation.isLoading,
+    updating: updateMutation.isPending,
     updateError: updateMutation.error,
   };
 };

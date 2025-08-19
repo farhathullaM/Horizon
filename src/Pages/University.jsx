@@ -3,7 +3,7 @@ import UniversityCourses from "@/components/University/UniversityCourses";
 import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { getUniversityDetails } from "@/services/public/publicRoutes";
-import { BASE_FILE_URL } from "@/lib/url";
+import { Loader } from "lucide-react";
 
 const University = () => {
   const { id } = useParams();
@@ -18,7 +18,8 @@ const University = () => {
   const university = data?.university;
   const courses = data?.courses;
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading)
+    return <Loader className="animate-spin text-[#FF9D01]" size={40} />;
   if (isError) return <div>Error</div>;
 
   return (
@@ -33,7 +34,7 @@ const University = () => {
           </p>
           <div className="bg-[#f7f4f4] rounded-xl w-fit border-2 px-5 py-3">
             <img
-              src={BASE_FILE_URL + "university/" + university.icon}
+              src={university.icon}
               alt={`${university.name} logo`}
               className="w-20"
             />
@@ -41,9 +42,7 @@ const University = () => {
         </div>
 
         <img
-          src={
-            BASE_FILE_URL + "university/" + encodeURIComponent(university.image)
-          }
+          src={university.image}
           alt={university.name}
           className="hidden max-md:block mt-10 rounded-4xl"
         />
@@ -52,7 +51,7 @@ const University = () => {
           <div className="absolute top-24 right-72 z-10 bg-[#6C6322] rounded-[90px] rotate-45 w-[400px] h-[500px] max-lg:w-[300px] max-lg:h-[450px] max-lg:top-5"></div>
           <div className="absolute top-20 right-44 z-30 bg-[#93928d] rounded-[90px] rotate-45 w-[400px]  h-[500px] overflow-hidden max-lg:w-[300px] max-lg:h-[450px] max-lg:top-5">
             <img
-              src={university.img}
+              src={university.image}
               alt="amity university"
               className="w-full h-full object-cover -rotate-45 scale-[1.3]"
             />
